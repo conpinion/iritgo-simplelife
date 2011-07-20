@@ -40,8 +40,8 @@
 		</dependency>
 	</dependencies>
 	<scm>
-		<connection>scm:http://iritgo-simplelife.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:https://iritgo-simplelife.googlecode.com/svn/trunk</developerConnection>
+		<connection>scm:svn:http://iritgo-simplelife.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://iritgo-simplelife.googlecode.com/svn/trunk</developerConnection>
 		<url>http://code.google.com/p/iritgo-simplelife/source/browse/</url>
 	</scm>
 	<build>
