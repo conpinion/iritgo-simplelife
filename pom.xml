@@ -16,7 +16,7 @@
 	<version>1.4.1</version>
 	<name>Iritgo SimpleLife Library</name>
 	<url>http://simplelife.iritgo.de</url>
-	<description>Frequently needed helper methods</description>
+	<description>Frequently needed helper functions and classes</description>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
