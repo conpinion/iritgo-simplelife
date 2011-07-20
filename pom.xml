@@ -40,9 +40,9 @@
 		</dependency>
 	</dependencies>
 	<scm>
-		<connection>scm:svn:file:///svn/iritgo/de.iritgo.simplelife/trunk</connection>
-		<developerConnection>scm:svn:file:///svn/iritgo/de.iritgo.simplelife/trunk</developerConnection>
-		<url>http://simplelife.iritgo.de/view.cvs</url>
+		<connection>scm:http://iritgo-simplelife.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:https://iritgo-simplelife.googlecode.com/svn/trunk</developerConnection>
+		<url>http://code.google.com/p/iritgo-simplelife/source/browse/</url>
 	</scm>
 	<build>
 		<plugins>
@@ -90,10 +90,12 @@
 		</plugins>
 	</build>
 	<distributionManagement>
+		<!--
 		<site>
 			<id>simplelife.iritgo.de</id>
 			<url>scp://simplelife.iritgo.de/projects/iritgo/simplelife/site</url>
 		</site>
+		-->
 	</distributionManagement>
 	<reporting>
 		<plugins>
