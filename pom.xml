@@ -14,7 +14,7 @@
 	<artifactId>iritgo-simplelife</artifactId>
 	<packaging>jar</packaging>
 	<version>1.4.1</version>
-	<name>Iritgo SimpleLife Library</name>
+	<name>Iritgo SimpleLife</name>
 	<url>http://code.google.com/p/iritgo-simplelife/</url>
 	<description>Frequently needed helper functions and classes</description>
 	<dependencies>
