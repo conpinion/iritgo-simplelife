@@ -20,7 +20,7 @@
 package de.iritgo.simplelife.tools;
 
 
-public class Full<T> implements Option<T>
+public class Full<T> extends Option<T>
 {
 	private T elem;
 
@@ -34,21 +34,25 @@ public class Full<T> implements Option<T>
 		this.elem = elem;
 	}
 
+	@Override
 	public boolean empty ()
 	{
 		return false;
 	}
 
+	@Override
 	public boolean full ()
 	{
 		return true;
 	}
 
+	@Override
 	public T get ()
 	{
 		return elem;
 	}
 
+	@Override
 	public T getOrElse (T defaultElem)
 	{
 		return elem;

@@ -20,23 +20,27 @@
 package de.iritgo.simplelife.tools;
 
 
-public class Empty<T> implements Option<T>
+public class Empty<T> extends Option<T>
 {
+	@Override
 	public boolean empty ()
 	{
 		return true;
 	}
 
+	@Override
 	public boolean full ()
 	{
 		return false;
 	}
 
+	@Override
 	public T get ()
 	{
 		throw new EmptyOptionException ();
 	}
 
+	@Override
 	public T getOrElse (T defaultElem)
 	{
 		return defaultElem;

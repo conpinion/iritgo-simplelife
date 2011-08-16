@@ -20,13 +20,20 @@
 package de.iritgo.simplelife.tools;
 
 
-public interface Option<T>
+public abstract class Option<T>
 {
-	public boolean empty ();
+	public static Empty Empty = new Empty ();
 
-	public boolean full ();
+	public static<T> Full Full (T t)
+	{
+		return new Full (t);
+	}
 
-	public T get ();
+	public abstract boolean empty ();
 
-	public T getOrElse (T defaultElem);
+	public abstract boolean full ();
+
+	public abstract T get ();
+
+	public abstract T getOrElse (T defaultElem);
 }

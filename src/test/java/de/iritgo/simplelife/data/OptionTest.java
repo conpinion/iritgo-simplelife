@@ -29,34 +29,65 @@ import de.iritgo.simplelife.tools.*;
 
 public class OptionTest
 {
-	@Test()
-	public void getAFilledOption ()
+	@Test
+	public void getAFilledOption1 ()
 	{
 		Option<String> option = new Full ("option");
 		assertThat (option.empty (), is (false));
 		assertThat (option.get (), equalTo ("option"));
 	}
 
-	@Test()
-	public void getAFilledOptionWithDefaultValue ()
+	public void getAFilledOption2 ()
+	{
+		Option<String> option = Option.Full ("option");
+		assertThat (option.empty (), is (false));
+		assertThat (option.get (), equalTo ("option"));
+	}
+
+	@Test
+	public void getAFilledOptionWithDefaultValue1 ()
 	{
 		Option<String> option = new Full ("option");
 		assertThat (option.empty (), is (false));
 		assertThat (option.getOrElse ("default"), equalTo ("option"));
 	}
 
-	@Test(expected = EmptyOptionException.class)
-	public void getAnEmptyOption ()
+	@Test
+	public void getAFilledOptionWithDefaultValue2 ()
 	{
-		Option<String> option = new Empty<String> ();
+		Option<String> option = Option.Full ("option");
+		assertThat (option.empty (), is (false));
+		assertThat (option.getOrElse ("default"), equalTo ("option"));
+	}
+
+	@Test(expected = EmptyOptionException.class)
+	public void getAnEmptyOption1 ()
+	{
+		Option<String> option = new Empty ();
 		assertThat (option.empty (), is (true));
 		option.get ();
 	}
 
-	@Test()
-	public void getAnEmptyOptionWithDefaultValue ()
+	@Test(expected = EmptyOptionException.class)
+	public void getAnEmptyOption2 ()
 	{
-		Option<String> option = new Empty<String> ();
+		Option<String> option = Option.Empty;
+		assertThat (option.empty (), is (true));
+		option.get ();
+	}
+
+	@Test
+	public void getAnEmptyOptionWithDefaultValue1 ()
+	{
+		Option<String> option = new Empty ();
+		assertThat (option.empty (), is (true));
+		assertThat (option.getOrElse ("default"), equalTo ("default"));
+	}
+
+	@Test
+	public void getAnEmptyOptionWithDefaultValue2 ()
+	{
+		Option<String> option = Option.Empty;
 		assertThat (option.empty (), is (true));
 		assertThat (option.getOrElse ("default"), equalTo ("default"));
 	}
