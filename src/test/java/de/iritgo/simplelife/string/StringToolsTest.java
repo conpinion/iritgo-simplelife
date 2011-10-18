@@ -22,9 +22,9 @@ package de.iritgo.simplelife.string;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import java.util.Properties;
+import java.util.regex.Pattern;
 import org.junit.Test;
 
 
@@ -181,5 +181,17 @@ public class StringToolsTest
 		assertThat (StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("9090", "9099"), equalTo ("909[0-9]"));
 		assertThat (StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("90", "99"), equalTo ("9[0-9]"));
 		assertThat (StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("0", "9"), equalTo ("[0-9]"));
+	}
+
+	@Test
+	public void matcherMatches ()
+	{
+		assertThat (StringTools.match (Pattern.compile ("\\w+"), "abc").matches (), is (true));
+	}
+
+	@Test
+	public void matcherDoesntMatche ()
+	{
+		assertThat (StringTools.match (Pattern.compile ("\\w+"), "#!$").matches (), is (false));
 	}
 }

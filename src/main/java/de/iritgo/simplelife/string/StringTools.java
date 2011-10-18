@@ -20,15 +20,12 @@
 package de.iritgo.simplelife.string;
 
 
-import de.iritgo.simplelife.math.NumberTools;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
 import java.security.MessageDigest;
-import java.util.Collection;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.*;
+import java.util.regex.*;
+import de.iritgo.simplelife.math.NumberTools;
+import de.iritgo.simplelife.tools.Option;
 
 
 /**
@@ -71,7 +68,7 @@ public final class StringTools
 
 	/**
 	 * Check whether 'test' is a substring of 'text'.
-	 * 
+	 *
 	 * @param text The text to check.
 	 * @param test The substring to find.
 	 * @return True if 'test' is part of 'text'.
@@ -83,7 +80,7 @@ public final class StringTools
 
 	/**
 	 * Check whether a string is empty (length == 0) or not.
-	 * 
+	 *
 	 * @return True if the supplied string is empty.
 	 */
 	public static boolean isEmpty (Object text)
@@ -93,7 +90,7 @@ public final class StringTools
 
 	/**
 	 * Check whether a trimmed string is empty (length == 0) or not.
-	 * 
+	 *
 	 * @return True if the supplied string is empty.
 	 */
 	public static boolean isTrimEmpty (Object text)
@@ -103,7 +100,7 @@ public final class StringTools
 
 	/**
 	 * Check whether a trimmed string is not empty (!= null && length != 0).
-	 * 
+	 *
 	 * @return True if the supplied string is not empty.
 	 */
 	public static boolean isNotTrimEmpty (Object text)
@@ -113,7 +110,7 @@ public final class StringTools
 
 	/**
 	 * Trim a string.
-	 * 
+	 *
 	 * @param text The string to trim.
 	 * @param defaultValue Return this string if text is null.
 	 * @return The trimmed string.
@@ -130,7 +127,7 @@ public final class StringTools
 
 	/**
 	 * Trim a string.
-	 * 
+	 *
 	 * @param text The string to trim.
 	 * @return The trimmed string. If text is null, the empty string is
 	 *         returned.
@@ -142,7 +139,7 @@ public final class StringTools
 
 	/**
 	 * Returns a new string with the first character converted to upper case.
-	 * 
+	 *
 	 * @param value The string to convert.
 	 * @return The converted string.
 	 */
@@ -153,7 +150,7 @@ public final class StringTools
 
 	/**
 	 * Returns a new string with the first character converted to lower case.
-	 * 
+	 *
 	 * @param value The string to convert.
 	 * @return The converted string.
 	 */
@@ -164,7 +161,7 @@ public final class StringTools
 
 	/**
 	 * Count the number of occurrences of a single character.
-	 * 
+	 *
 	 * @param text The string to check.
 	 * @param ch The character to count.
 	 * @return The number of occurrences of the character.
@@ -184,7 +181,7 @@ public final class StringTools
 
 	/**
 	 * Encode the specified string.
-	 * 
+	 *
 	 * @param s This is the string to encode.
 	 * @return The encoded string.
 	 */
@@ -219,7 +216,7 @@ public final class StringTools
 
 	/**
 	 * Decode the specified string.
-	 * 
+	 *
 	 * @param s This is the string to decode.
 	 * @return The decoded string.
 	 */
@@ -252,7 +249,7 @@ public final class StringTools
 
 	/**
 	 * Convert an integer value to a hex string.
-	 * 
+	 *
 	 * @param value The value to convert.
 	 * @param numChars The number of chars (nibbles) that should be converted.
 	 * @return The hex string.
@@ -278,7 +275,7 @@ public final class StringTools
 
 	/**
 	 * Convert a hex string to an integer value .
-	 * 
+	 *
 	 * @param s The hexString to convert.
 	 * @return The integer value.
 	 */
@@ -316,7 +313,7 @@ public final class StringTools
 	/**
 	 * Escape a string for use with regular expressions. This method escapes all
 	 * meta characters.
-	 * 
+	 *
 	 * @param s The string to convert.
 	 * @return The escaped string.
 	 */
@@ -327,7 +324,7 @@ public final class StringTools
 
 	/**
 	 * Create a string that contains 'repeat' occurrences of the string 's'.
-	 * 
+	 *
 	 * @param s The base string.
 	 * @param repeat The number of concatenations.
 	 * @return The new string.
@@ -346,7 +343,7 @@ public final class StringTools
 
 	/**
 	 * Convert the parameter to a string array.
-	 * 
+	 *
 	 * @param value Can be a String an Object array or null.
 	 * @return A String array (with length = 0 if the supplied value is null).
 	 */
@@ -379,7 +376,7 @@ public final class StringTools
 
 	/**
 	 * Check if the given string only contains chars, numbers and "_"
-	 * 
+	 *
 	 * @param s The string to check.
 	 * @return True if the string is valid.
 	 */
@@ -393,7 +390,7 @@ public final class StringTools
 	/**
 	 * Convert the given string so that it only contains chars, numbers and "_".
 	 * Every other character will be deleted.
-	 * 
+	 *
 	 * @param s The string to convert.
 	 * @return The converted string.
 	 */
@@ -405,7 +402,7 @@ public final class StringTools
 	/**
 	 * Check to strings for equality. The null string (null) is regarded as
 	 * being equal to the empty string ("").
-	 * 
+	 *
 	 * @param s1 The first string to check.
 	 * @param s2 The second string to check. return True if the strings are
 	 *            equal.
@@ -417,7 +414,7 @@ public final class StringTools
 
 	/**
 	 * Replace all occurrences of a substring with another string.
-	 * 
+	 *
 	 * @param text The string in which to replace the substring.s
 	 * @param from The search pattern (regular expression).
 	 * @param to The replacement string.
@@ -434,7 +431,7 @@ public final class StringTools
 
 	/**
 	 * Replace variables (${name} of #{name}) with property values.
-	 * 
+	 *
 	 * @param text String to convert.
 	 * @return The converted string.
 	 */
@@ -447,7 +444,7 @@ public final class StringTools
 	 * Replace variables (${name} of #{name}) with property values. It can cut
 	 * the destination variable by ${name:x} or append spaces by ${name:+x}.
 	 * Also you can add a "cutString" by e.g. ${name:x:...}
-	 * 
+	 *
 	 * @param text String to convert.
 	 * @param keepUnfoundKeys If true the template key will not be deleted
 	 * @return The converted string.
@@ -560,7 +557,7 @@ public final class StringTools
 	/**
 	 * Replace a given text with an object array. In the text you can use {0}
 	 * for seq. replacement
-	 * 
+	 *
 	 * @param text The text
 	 * @param reReplaceTemplateVariables The given outbound pattern
 	 * @param reTrimOrExtendTemplateVariables The given inbound pattern
@@ -646,13 +643,13 @@ public final class StringTools
 	/**
 	 * Append a string to an appendable and separate each appended string with
 	 * the specified delimiter:
-	 * 
+	 *
 	 * StringTools.appendWithDelimiter ("aaa", ":");
 	 * StringTools.appendWithDelimiter ("bbb", ":");
 	 * StringTools.appendWithDelimiter ("ccc", ":");
-	 * 
+	 *
 	 * results in "aaa:bbb:ccc".
-	 * 
+	 *
 	 * @param buf The appendable to which the text is appended.
 	 * @param len The current length of the appendable.
 	 * @param s The text to append.
@@ -673,7 +670,7 @@ public final class StringTools
 
 	/**
 	 * @see StringTools#appendWithDelimiter(Appendable, int, String, String)
-	 * 
+	 *
 	 *      Convenience method that takes a StringBuffer.
 	 */
 	public static void appendWithDelimiter (StringBuffer buf, String s, String delim)
@@ -683,7 +680,7 @@ public final class StringTools
 
 	/**
 	 * @see StringTools#appendWithDelimiter(Appendable, int, String, String)
-	 * 
+	 *
 	 *      Convenience method that takes a StringBuilder.
 	 */
 	public static void appendWithDelimiter (StringBuilder buf, String s, String delim)
@@ -693,7 +690,7 @@ public final class StringTools
 
 	/**
 	 * Connecatenate all provided strings and place the delimiter between them.
-	 * 
+	 *
 	 * @param buf The StringBuilder to append to
 	 * @param strings The strings to concatenate
 	 * @param delim The delimiter
@@ -708,7 +705,7 @@ public final class StringTools
 
 	/**
 	 * Append a string to an appendable only if the given predicate is true.
-	 * 
+	 *
 	 * @param p The predicate.
 	 * @param buf The appendable.
 	 * @param s The string to add.
@@ -731,7 +728,7 @@ public final class StringTools
 	 * Concatenate all elements in the given collection. Elements are separated
 	 * with the specified delimiter. Each element is converted to a string with
 	 * the specified converter.
-	 * 
+	 *
 	 * @param values The string array to convert to a string.
 	 * @param delim The delimiter.
 	 * @param converter The string converter to use.
@@ -753,7 +750,7 @@ public final class StringTools
 	 * Concatenate all elements in the given collection. Elements are separated
 	 * with the specified delimiter. Each element is converted to a string with
 	 * the toString() method.
-	 * 
+	 *
 	 * @param values The string array to convert to a string.
 	 * @param delim The delimiter.
 	 * @return The concatenated string.
@@ -766,7 +763,7 @@ public final class StringTools
 	/**
 	 * Normalize a MAC address. A normilized MAC address matches the pattern
 	 * "dd:dd:dd:dd:dd:dd:dd:dd".
-	 * 
+	 *
 	 * @param macAddress The MAC address to normalize
 	 * @return The normalized MAC address
 	 */
@@ -804,7 +801,7 @@ public final class StringTools
 
 	/**
 	 * Create a stack trace string from a throwable.
-	 * 
+	 *
 	 * @param t The throwable
 	 * @return The stack strace string
 	 */
@@ -820,7 +817,7 @@ public final class StringTools
 
 	/**
 	 * Create a hex SHA1 digest from the specified string.
-	 * 
+	 *
 	 * @param value The string to digest
 	 * @return The digest, i.e. hex(sha1(value)). If the supplied value is null,
 	 *         null is returned
@@ -849,7 +846,7 @@ public final class StringTools
 
 	/**
 	 * Create a hex SHA1 digest from the specified string.
-	 * 
+	 *
 	 * @param value The string to digest
 	 * @return The digest, i.e. hex(sha1(value)). If the supplied value is null,
 	 *         null is returned
@@ -867,7 +864,7 @@ public final class StringTools
 	/**
 	 * This utility method is passed an array of bytes. It returns this array as
 	 * a String in hexadecimal format.
-	 * 
+	 *
 	 * @param data The data bytes
 	 * @return The hex string
 	 */
@@ -887,7 +884,7 @@ public final class StringTools
 	/**
 	 * Extends the String.format function to cut to the string to a given
 	 * length. Use %5:5s to to cut at 5 characters
-	 * 
+	 *
 	 * @param text The format text
 	 * @param objects The objects
 	 * @return The formated string
@@ -900,7 +897,7 @@ public final class StringTools
 	/**
 	 * Extends the String.format function to cut to the string to a given
 	 * length. Use %5:5s to to cut at 5 characters
-	 * 
+	 *
 	 * @param text The format text
 	 * @param objects The objects
 	 * @param leftCut Is false the string will cutted from right
@@ -950,7 +947,7 @@ public final class StringTools
 
 	/**
 	 * Trim and convert to lower case
-	 * 
+	 *
 	 * @param value The object
 	 * @return The lower case string
 	 */
@@ -963,7 +960,7 @@ public final class StringTools
 	 * Same as String.substring (pos), but doesn't throw any exception. If pos
 	 * is < 0, s is returned. If pos is > s.length (), an empty string is
 	 * returned.
-	 * 
+	 *
 	 * @param s The string to substring
 	 * @param pos The starting position
 	 * @return The substring
@@ -985,7 +982,7 @@ public final class StringTools
 
 	/**
 	 * Return a string with only numbers. All other chars are filtered out
-	 * 
+	 *
 	 * @param s The string
 	 * @return The number string
 	 */
@@ -997,7 +994,7 @@ public final class StringTools
 	/**
 	 * Return a common prefix from the given strings. Like this: "test1234" -
 	 * "test5332" -> "test"
-	 * 
+	 *
 	 * @param s1 The first string
 	 * @param s2 the second string
 	 * @return The common prefix from the strings
@@ -1025,7 +1022,7 @@ public final class StringTools
 	 * 124[5-9]|12[5
 	 * -9][0-9]|1[3-9][0-9][0-9]|2[0-9]{3}|3[0-9]{3}|472[0-3]|47[0-1
 	 * ][0-9]|4[0-6][0-9][0-9]
-	 * 
+	 *
 	 * @param start The start range
 	 * @param stop The stop range
 	 * @return The pattern for the range of numbers
@@ -1127,5 +1124,12 @@ public final class StringTools
 		pattern.append ("|");
 		++counter;
 		genHigh (high, pattern, counter, prefix);
+	}
+
+	public static Matcher match (Pattern pattern, String s)
+	{
+		Matcher matcher = pattern.matcher (s);
+		matcher.matches ();
+		return matcher;
 	}
 }
