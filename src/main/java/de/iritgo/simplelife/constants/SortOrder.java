@@ -31,32 +31,32 @@ public enum SortOrder
 
 	private String hql;
 
-	SortOrder (String id, String hql)
+	SortOrder(String id, String hql)
 	{
 		this.id = id;
 		this.hql = hql;
 	}
 
-	public String hql ()
+	public String hql()
 	{
 		return hql;
 	}
 
-	public String id ()
+	public String id()
 	{
 		return id;
 	}
 
-	public static SortOrder byId (String anId)
+	public static SortOrder byId(String anId)
 	{
-		for (SortOrder order : SortOrder.values ())
+		for (SortOrder order : SortOrder.values())
 		{
-			if (order.id.equals (anId))
+			if (order.id.equals(anId))
 			{
 				return order;
 			}
 		}
 
-		throw new IllegalArgumentException ("Unknown SortOrder id '" + anId + "'");
+		throw new IllegalArgumentException("Unknown SortOrder id '" + anId + "'");
 	}
 }

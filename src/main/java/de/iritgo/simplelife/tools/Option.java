@@ -22,18 +22,73 @@ package de.iritgo.simplelife.tools;
 
 public abstract class Option<T>
 {
-	public static Empty Empty = new Empty ();
+	public static Empty Empty = new Empty();
 
-	public static<T> Full Full (T t)
+	public static Empty Empty()
 	{
-		return new Full (t);
+		return Empty;
 	}
 
-	public abstract boolean empty ();
+	public static Empty None()
+	{
+		return Empty;
+	}
 
-	public abstract boolean full ();
+	public static <T> Full Full(T t)
+	{
+		return new Full(t);
+	}
 
-	public abstract T get ();
+	public static <T> Full Some(T t)
+	{
+		return new Full(t);
+	}
 
-	public abstract T getOrElse (T defaultElem);
+	public abstract boolean empty();
+
+	public boolean isEmpty()
+	{
+		return empty();
+	}
+
+	public boolean absent()
+	{
+		return empty();
+	}
+
+	public abstract boolean full();
+
+	public boolean isFull()
+	{
+		return full();
+	}
+
+	public static <T> boolean oo(Option<T> o)
+	{
+		return o.full();
+	}
+
+	public boolean present()
+	{
+		return full();
+	}
+
+	public abstract T get();
+
+	public static <T> T o(Option<T> o)
+	{
+		return o.get();
+	}
+
+	public static <T> T o(Option<T> o, T defaultElem)
+	{
+		return o.or(defaultElem);
+	}
+
+	public abstract T getOrElse(T defaultElem);
+
+	public T or(T defaultElem)
+	{
+		return getOrElse(defaultElem);
+	}
 }

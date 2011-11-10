@@ -33,5 +33,5 @@ public interface Function4<RES, ARG_1, ARG_2, ARG_3, ARG_4>
 	 * @param a3 Argument 3
 	 * @param a4 Argument 4
 	 */
-	public RES eval (ARG_1 a1, ARG_2 a2, ARG_3 a3, ARG_4 a4);
+	public RES eval(ARG_1 a1, ARG_2 a2, ARG_3 a3, ARG_4 a4);
 }

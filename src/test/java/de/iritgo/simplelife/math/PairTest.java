@@ -28,11 +28,11 @@ import org.junit.Test;
 public class PairTest
 {
 	@Test
-	public void construction () throws Exception
+	public void construction() throws Exception
 	{
-		Pair<Integer, Integer> pair = new Pair<Integer, Integer> (123, 456);
+		Pair<Integer, Integer> pair = new Pair<Integer, Integer>(123, 456);
 
-		assertThat (pair.get1 (), equalTo (123));
-		assertThat (pair.get2 (), equalTo (456));
+		assertThat(pair.get1(), equalTo(123));
+		assertThat(pair.get2(), equalTo(456));
 	}
 }

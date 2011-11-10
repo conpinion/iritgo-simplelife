@@ -30,28 +30,28 @@ import de.iritgo.simplelife.data.Tuple2;
 public class TupleTest
 {
 	@Test
-	public void equality () throws Exception
+	public void equality() throws Exception
 	{
-		Tuple2<String, Integer> a = new Tuple2 ("a", 1);
-		Tuple2<String, Integer> b = new Tuple2 ("a", 1);
-		Tuple2<String, Integer> c = new Tuple2 ("a", 2);
-		Tuple2<String, Integer> d = new Tuple2 ("b", 1);
-		Tuple2<String, Integer> e = new Tuple2 (null, 1);
-		Tuple2<String, Integer> f = new Tuple2 (null, 1);
-		Tuple2<String, Integer> g = new Tuple2 ("a", null);
-		Tuple2<String, Integer> h = new Tuple2 ("a", null);
-		Tuple2<String, Integer> i = new Tuple2 (null, null);
-		Tuple2<String, Integer> j = new Tuple2 (null, null);
+		Tuple2<String, Integer> a = new Tuple2("a", 1);
+		Tuple2<String, Integer> b = new Tuple2("a", 1);
+		Tuple2<String, Integer> c = new Tuple2("a", 2);
+		Tuple2<String, Integer> d = new Tuple2("b", 1);
+		Tuple2<String, Integer> e = new Tuple2(null, 1);
+		Tuple2<String, Integer> f = new Tuple2(null, 1);
+		Tuple2<String, Integer> g = new Tuple2("a", null);
+		Tuple2<String, Integer> h = new Tuple2("a", null);
+		Tuple2<String, Integer> i = new Tuple2(null, null);
+		Tuple2<String, Integer> j = new Tuple2(null, null);
 
-		assertThat (a, equalTo (a));
-		assertThat (a, equalTo (b));
-		assertThat (e, equalTo (f));
-		assertThat (g, equalTo (h));
-		assertThat (i, equalTo (j));
-		assertThat (a, not (equalTo (c)));
-		assertThat (a, not (equalTo (d)));
-		assertThat (a, not (equalTo (e)));
-		assertThat (a, not (equalTo (g)));
-		assertThat (a, not (equalTo (i)));
+		assertThat(a, equalTo(a));
+		assertThat(a, equalTo(b));
+		assertThat(e, equalTo(f));
+		assertThat(g, equalTo(h));
+		assertThat(i, equalTo(j));
+		assertThat(a, not(equalTo(c)));
+		assertThat(a, not(equalTo(d)));
+		assertThat(a, not(equalTo(e)));
+		assertThat(a, not(equalTo(g)));
+		assertThat(a, not(equalTo(i)));
 	}
 }

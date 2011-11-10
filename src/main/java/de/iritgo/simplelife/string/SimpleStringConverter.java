@@ -28,8 +28,8 @@ public class SimpleStringConverter implements StringConverter
 	/**
 	 * @see de.iritgo.simplelife.string.StringConverter#toString(java.lang.Object)
 	 */
-	public String toString (Object value)
+	public String toString(Object value)
 	{
-		return value.toString ();
+		return value.toString();
 	}
 }

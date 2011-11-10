@@ -32,5 +32,5 @@ public interface Procedure3<ARG_1, ARG_2, ARG_3>
 	 * @param a2 Parameter 2
 	 * @param a3 Parameter 3
 	 */
-	public void execute (ARG_1 a1, ARG_2 a2, ARG_3 a3);
+	public void execute(ARG_1 a1, ARG_2 a2, ARG_3 a3);
 }

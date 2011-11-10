@@ -38,7 +38,7 @@ public class Pair<T1, T2>
 	 * @param _1 First pair component.
 	 * @param _2 Second pair component.
 	 */
-	public Pair (T1 _1, T2 _2)
+	public Pair(T1 _1, T2 _2)
 	{
 		this._1 = _1;
 		this._2 = _2;
@@ -49,7 +49,7 @@ public class Pair<T1, T2>
 	 * 
 	 * @return The first component.
 	 */
-	public T1 get1 ()
+	public T1 get1()
 	{
 		return _1;
 	}
@@ -59,7 +59,7 @@ public class Pair<T1, T2>
 	 * 
 	 * @param first The new first.
 	 */
-	public void set1 (T1 first)
+	public void set1(T1 first)
 	{
 		this._1 = first;
 	}
@@ -69,7 +69,7 @@ public class Pair<T1, T2>
 	 * 
 	 * @return The second component.
 	 */
-	public T2 get2 ()
+	public T2 get2()
 	{
 		return _2;
 	}
@@ -79,7 +79,7 @@ public class Pair<T1, T2>
 	 * 
 	 * @param second The new second.
 	 */
-	public void set2 (T2 second)
+	public void set2(T2 second)
 	{
 		this._2 = second;
 	}
@@ -88,7 +88,7 @@ public class Pair<T1, T2>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -100,6 +100,6 @@ public class Pair<T1, T2>
 			return false;
 		}
 
-		return _1.equals (((Pair<T1, T2>) obj)._1) && _2.equals (((Pair<T1, T2>) obj)._2);
+		return _1.equals(((Pair<T1, T2>) obj)._1) && _2.equals(((Pair<T1, T2>) obj)._2);
 	}
 }

@@ -30,33 +30,33 @@ public class JointIterator<T1, T2> implements Iterator<Pair<T1, T2>>, Iterable<P
 
 	private Iterator<T2> i2;
 
-	public JointIterator (Iterable<T1> iable1, Iterable<T2> iable2)
+	public JointIterator(Iterable<T1> iable1, Iterable<T2> iable2)
 	{
-		this.i1 = iable1.iterator ();
-		this.i2 = iable2.iterator ();
+		this.i1 = iable1.iterator();
+		this.i2 = iable2.iterator();
 	}
 
-	public JointIterator (Iterator<T1> i1, Iterator<T2> i2)
+	public JointIterator(Iterator<T1> i1, Iterator<T2> i2)
 	{
 		this.i1 = i1;
 		this.i2 = i2;
 	}
 
-	public boolean hasNext ()
+	public boolean hasNext()
 	{
-		return i1.hasNext () && i2.hasNext ();
+		return i1.hasNext() && i2.hasNext();
 	}
 
-	public Pair<T1, T2> next ()
+	public Pair<T1, T2> next()
 	{
-		return new Pair (i1.next (), i2.next ());
+		return new Pair(i1.next(), i2.next());
 	}
 
-	public void remove ()
+	public void remove()
 	{
 	}
 
-	public Iterator<Pair<T1, T2>> iterator ()
+	public Iterator<Pair<T1, T2>> iterator()
 	{
 		return this;
 	}

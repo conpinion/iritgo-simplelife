@@ -35,20 +35,20 @@ public class BeanTools
 	 * @param overwrite If true existing attributes in the map will be
 	 *            overwritten
 	 */
-	static public void copyBean2Map (Object object, Map<String, Object> map, boolean overwrite)
+	static public void copyBean2Map(Object object, Map<String, Object> map, boolean overwrite)
 	{
-		for (PropertyDescriptor pd : PropertyUtils.getPropertyDescriptors (object))
+		for (PropertyDescriptor pd : PropertyUtils.getPropertyDescriptors(object))
 		{
-			String name = pd.getName ();
+			String name = pd.getName();
 
-			if (! overwrite && map.containsKey (name))
+			if (! overwrite && map.containsKey(name))
 			{
 				continue;
 			}
 
 			try
 			{
-				map.put (name, PropertyUtils.getProperty (object, name));
+				map.put(name, PropertyUtils.getProperty(object, name));
 			}
 			catch (Exception ignore)
 			{
@@ -62,15 +62,15 @@ public class BeanTools
 	 * @param map The map The map
 	 * @param object The bean The bean
 	 */
-	static public void copyMap2Bean (Map<String, Object> map, Object object)
+	static public void copyMap2Bean(Map<String, Object> map, Object object)
 	{
-		for (String name : map.keySet ())
+		for (String name : map.keySet())
 		{
-			if (PropertyUtils.isWriteable (object, name))
+			if (PropertyUtils.isWriteable(object, name))
 			{
 				try
 				{
-					PropertyUtils.setSimpleProperty (object, name, map.get (name));
+					PropertyUtils.setSimpleProperty(object, name, map.get(name));
 				}
 				catch (Exception ignore)
 				{
@@ -86,11 +86,11 @@ public class BeanTools
 	 * @param propertyName The property name
 	 * @return True if the property exists
 	 */
-	static public boolean hasProperty (Class klass, String propertyName)
+	static public boolean hasProperty(Class klass, String propertyName)
 	{
-		for (PropertyDescriptor pd : PropertyUtils.getPropertyDescriptors (klass))
+		for (PropertyDescriptor pd : PropertyUtils.getPropertyDescriptors(klass))
 		{
-			if (pd.getName ().equals (propertyName))
+			if (pd.getName().equals(propertyName))
 			{
 				return true;
 			}

@@ -41,7 +41,7 @@ public class Tuple3<T1, T2, T3>
 	 * @param _2 Second component.
 	 * @param _3 Third component.
 	 */
-	public Tuple3 (T1 _1, T2 _2, T3 _3)
+	public Tuple3(T1 _1, T2 _2, T3 _3)
 	{
 		this._1 = _1;
 		this._2 = _2;
@@ -53,7 +53,7 @@ public class Tuple3<T1, T2, T3>
 	 *
 	 * @return The first component.
 	 */
-	public T1 get1 ()
+	public T1 get1()
 	{
 		return _1;
 	}
@@ -63,7 +63,7 @@ public class Tuple3<T1, T2, T3>
 	 *
 	 * @param _1 The new first component.
 	 */
-	public void set1 (T1 _1)
+	public void set1(T1 _1)
 	{
 		this._1 = _1;
 	}
@@ -73,7 +73,7 @@ public class Tuple3<T1, T2, T3>
 	 *
 	 * @return The second component.
 	 */
-	public T2 get2 ()
+	public T2 get2()
 	{
 		return _2;
 	}
@@ -83,7 +83,7 @@ public class Tuple3<T1, T2, T3>
 	 *
 	 * @param _2 The new second component.
 	 */
-	public void set2 (T2 _2)
+	public void set2(T2 _2)
 	{
 		this._2 = _2;
 	}
@@ -93,7 +93,7 @@ public class Tuple3<T1, T2, T3>
 	 *
 	 * @return The third component.
 	 */
-	public T3 get3 ()
+	public T3 get3()
 	{
 		return _3;
 	}
@@ -103,7 +103,7 @@ public class Tuple3<T1, T2, T3>
 	 *
 	 * @param _3 The new third component.
 	 */
-	public void set3 (T3 _3)
+	public void set3(T3 _3)
 	{
 		this._3 = _3;
 	}
@@ -112,7 +112,7 @@ public class Tuple3<T1, T2, T3>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -125,27 +125,27 @@ public class Tuple3<T1, T2, T3>
 		}
 
 		Tuple3<T1, T2, T3> o = (Tuple3<T1, T2, T3>) obj;
-		return (_1 != null ? _1.equals (o._1) : o._1 == null) && (_2 != null ? _2.equals (o._2) : o._2 == null)
-						&& (_3 != null ? _3.equals (o._3) : o._3 == null);
+		return (_1 != null ? _1.equals(o._1) : o._1 == null) && (_2 != null ? _2.equals(o._2) : o._2 == null)
+						&& (_3 != null ? _3.equals(o._3) : o._3 == null);
 	}
 
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode ()
+	public int hashCode()
 	{
-		return (_1 != null ? _1.hashCode () : 0) + 11 * (_2 != null ? _2.hashCode () : 0) + 17
-						* (_3 != null ? _3.hashCode () : 0);
+		return (_1 != null ? _1.hashCode() : 0) + 11 * (_2 != null ? _2.hashCode() : 0) + 17
+						* (_3 != null ? _3.hashCode() : 0);
 	}
 
 	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return "(" + (_1 != null ? _1.toString () : "<null>") + "," + (_2 != null ? _2.toString () : "<null>") + ","
-						+ (_3 != null ? _3.toString () : "<null>") + ")";
+		return "(" + (_1 != null ? _1.toString() : "<null>") + "," + (_2 != null ? _2.toString() : "<null>") + ","
+						+ (_3 != null ? _3.toString() : "<null>") + ")";
 	}
 }

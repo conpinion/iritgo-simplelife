@@ -22,7 +22,7 @@ package de.iritgo.simplelife.tools;
 
 public class Null
 {
-	public static <T> T safe (T value, T defaultValue)
+	public static <T> T safe(T value, T defaultValue)
 	{
 		return value != null ? value : defaultValue;
 	}

@@ -34,5 +34,5 @@ public interface ResultExecutor4<Result, T1, T2, T3, T4>
 	 * @param t4 Parameter 4
 	 * @return The executor results
 	 */
-	public Result execute (T1 t1, T2 t2, T3 t3, T4 t4);
+	public Result execute(T1 t1, T2 t2, T3 t3, T4 t4);
 }

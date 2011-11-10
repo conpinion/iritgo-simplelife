@@ -31,5 +31,5 @@ public interface StringConverter
 	 * @param value The object to convert.
 	 * @return The string.
 	 */
-	public String toString (Object value);
+	public String toString(Object value);
 }

@@ -36,7 +36,7 @@ public interface DataConverter<Type1, Type2>
 	 * @param o The object to convert
 	 * @return The converted object
 	 */
-	public Type2 convertFromType1 (Type1 o);
+	public Type2 convertFromType1(Type1 o);
 
 	/**
 	 * Convert from the second type to the first. If the supplied object is
@@ -45,5 +45,5 @@ public interface DataConverter<Type1, Type2>
 	 * @param o The object to convert
 	 * @return The converted object
 	 */
-	public Type1 convertFromType2 (Type2 o);
+	public Type1 convertFromType2(Type2 o);
 }

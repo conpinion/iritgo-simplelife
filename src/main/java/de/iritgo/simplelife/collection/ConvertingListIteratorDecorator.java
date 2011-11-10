@@ -45,7 +45,7 @@ public class ConvertingListIteratorDecorator<RealType, ConvertedType> implements
 	 * @param iterator The iterator to decorate
 	 * @param converter The data converter
 	 */
-	public ConvertingListIteratorDecorator (ListIterator<RealType> iterator,
+	public ConvertingListIteratorDecorator(ListIterator<RealType> iterator,
 					DataConverter<RealType, ConvertedType> converter)
 	{
 		this.iterator = iterator;
@@ -55,72 +55,72 @@ public class ConvertingListIteratorDecorator<RealType, ConvertedType> implements
 	/**
 	 * @see java.util.Iterator#hasNext()
 	 */
-	public boolean hasNext ()
+	public boolean hasNext()
 	{
-		return iterator.hasNext ();
+		return iterator.hasNext();
 	}
 
 	/**
 	 * @see java.util.Iterator#next()
 	 */
-	public ConvertedType next ()
+	public ConvertedType next()
 	{
-		return converter.convertFromType1 (iterator.next ());
+		return converter.convertFromType1(iterator.next());
 	}
 
 	/**
 	 * @see java.util.Iterator#remove()
 	 */
-	public void remove ()
+	public void remove()
 	{
-		iterator.remove ();
+		iterator.remove();
 	}
 
 	/**
 	 * @see java.util.ListIterator#add(java.lang.Object)
 	 */
-	public void add (ConvertedType e)
+	public void add(ConvertedType e)
 	{
-		iterator.add (converter.convertFromType2 (e));
+		iterator.add(converter.convertFromType2(e));
 	}
 
 	/**
 	 * @see java.util.ListIterator#hasPrevious()
 	 */
-	public boolean hasPrevious ()
+	public boolean hasPrevious()
 	{
-		return iterator.hasPrevious ();
+		return iterator.hasPrevious();
 	}
 
 	/**
 	 * @see java.util.ListIterator#nextIndex()
 	 */
-	public int nextIndex ()
+	public int nextIndex()
 	{
-		return iterator.nextIndex ();
+		return iterator.nextIndex();
 	}
 
 	/**
 	 * @see java.util.ListIterator#previous()
 	 */
-	public ConvertedType previous ()
+	public ConvertedType previous()
 	{
-		return converter.convertFromType1 (iterator.previous ());
+		return converter.convertFromType1(iterator.previous());
 	}
 
 	/**
 	 * @see java.util.ListIterator#previousIndex()
 	 */
-	public int previousIndex ()
+	public int previousIndex()
 	{
-		return iterator.previousIndex ();
+		return iterator.previousIndex();
 	}
 
 	/**
 	 * @see java.util.ListIterator#set(java.lang.Object)
 	 */
-	public void set (ConvertedType e)
+	public void set(ConvertedType e)
 	{
-		iterator.set (converter.convertFromType2 (e));
+		iterator.set(converter.convertFromType2(e));
 	}
 }

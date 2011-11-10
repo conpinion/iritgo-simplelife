@@ -40,23 +40,23 @@ public final class NumberTools
 	 * @param defaultValue Integer value to return if the conversion fails.
 	 * @return The integer value.
 	 */
-	public static int toInt (Object value, int defaultValue)
+	public static int toInt(Object value, int defaultValue)
 	{
 		if (value == null)
 		{
 			return defaultValue;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return defaultValue;
 		}
 
 		try
 		{
-			return Integer.parseInt (strValue.trim ());
+			return Integer.parseInt(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -71,9 +71,9 @@ public final class NumberTools
 	 * @param defaultValue Integer value to return if the conversion fails.
 	 * @return The integer instance.
 	 */
-	public static Integer toIntInstance (Object value, int defaultValue)
+	public static Integer toIntInstance(Object value, int defaultValue)
 	{
-		return new Integer (toInt (value, defaultValue));
+		return new Integer(toInt(value, defaultValue));
 	}
 
 	/**
@@ -82,23 +82,23 @@ public final class NumberTools
 	 * @param value The string value.
 	 * @return The integer instance or null.
 	 */
-	public static Integer toIntInstance (Object value)
+	public static Integer toIntInstance(Object value)
 	{
 		if (value == null)
 		{
 			return null;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return null;
 		}
 
 		try
 		{
-			return new Integer (strValue.trim ());
+			return new Integer(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -113,23 +113,23 @@ public final class NumberTools
 	 * @param defaultValue Int value to return if the conversion fails.
 	 * @return The long value.
 	 */
-	public static long toLong (Object value, long defaultValue)
+	public static long toLong(Object value, long defaultValue)
 	{
 		if (value == null)
 		{
 			return defaultValue;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return defaultValue;
 		}
 
 		try
 		{
-			return Long.parseLong (strValue.trim ());
+			return Long.parseLong(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -144,9 +144,9 @@ public final class NumberTools
 	 * @param defaultValue Long value to return if the conversion fails.
 	 * @return The long instance.
 	 */
-	public static Long toLongInstance (Object value, long defaultValue)
+	public static Long toLongInstance(Object value, long defaultValue)
 	{
-		return new Long (toLong (value, defaultValue));
+		return new Long(toLong(value, defaultValue));
 	}
 
 	/**
@@ -155,23 +155,23 @@ public final class NumberTools
 	 * @param value The string value.
 	 * @return The long instance or null.
 	 */
-	public static Long toLongInstance (Object value)
+	public static Long toLongInstance(Object value)
 	{
 		if (value == null)
 		{
 			return null;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return null;
 		}
 
 		try
 		{
-			return new Long (strValue.trim ());
+			return new Long(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -186,23 +186,23 @@ public final class NumberTools
 	 * @param defaultValue Double value to return if the conversion fails.
 	 * @return The double value.
 	 */
-	public static double toDouble (Object value, double defaultValue)
+	public static double toDouble(Object value, double defaultValue)
 	{
 		if (value == null)
 		{
 			return defaultValue;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return defaultValue;
 		}
 
 		try
 		{
-			return Double.parseDouble (strValue.trim ());
+			return Double.parseDouble(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -217,9 +217,9 @@ public final class NumberTools
 	 * @param defaultValue Double value to return if the conversion fails.
 	 * @return The double instance.
 	 */
-	public static Double toDoubleInstance (Object value, double defaultValue)
+	public static Double toDoubleInstance(Object value, double defaultValue)
 	{
-		return new Double (toDouble (value, defaultValue));
+		return new Double(toDouble(value, defaultValue));
 	}
 
 	/**
@@ -228,23 +228,23 @@ public final class NumberTools
 	 * @param value The string value.
 	 * @return The double instance.
 	 */
-	public static Double toDoubleInstance (Object value)
+	public static Double toDoubleInstance(Object value)
 	{
 		if (value == null)
 		{
 			return null;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return null;
 		}
 
 		try
 		{
-			return new Double (strValue.trim ());
+			return new Double(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -259,23 +259,23 @@ public final class NumberTools
 	 * @param defaultValue Boolean value to return if the conversion fails.
 	 * @return The boolean value.
 	 */
-	public static boolean toBool (Object value, boolean defaultValue)
+	public static boolean toBool(Object value, boolean defaultValue)
 	{
 		if (value == null)
 		{
 			return defaultValue;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return defaultValue;
 		}
 
-		strValue = strValue.trim ().toLowerCase ();
+		strValue = strValue.trim().toLowerCase();
 
-		if ("on".equals (strValue) || "true".equals (strValue) || "1".equals (strValue))
+		if ("on".equals(strValue) || "true".equals(strValue) || "1".equals(strValue))
 		{
 			return true;
 		}
@@ -292,9 +292,9 @@ public final class NumberTools
 	 * @param defaultValue Boolean value to return if the conversion fails.
 	 * @return The boolean instance.
 	 */
-	public static Boolean toBoolInstance (Object value, boolean defaultValue)
+	public static Boolean toBoolInstance(Object value, boolean defaultValue)
 	{
-		return new Boolean (toBool (value, defaultValue));
+		return new Boolean(toBool(value, defaultValue));
 	}
 
 	/**
@@ -303,23 +303,23 @@ public final class NumberTools
 	 * @param value The string value.
 	 * @return The boolean instance.
 	 */
-	public static Boolean toBoolInstance (Object value)
+	public static Boolean toBoolInstance(Object value)
 	{
 		if (value == null)
 		{
 			return null;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return null;
 		}
 
 		try
 		{
-			return new Boolean (strValue.trim ());
+			return new Boolean(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -334,23 +334,23 @@ public final class NumberTools
 	 * @param defaultValue Float value to return if the conversion fails.
 	 * @return The float value.
 	 */
-	public static float toFloat (Object value, float defaultValue)
+	public static float toFloat(Object value, float defaultValue)
 	{
 		if (value == null)
 		{
 			return defaultValue;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return defaultValue;
 		}
 
 		try
 		{
-			return Float.parseFloat (strValue.trim ());
+			return Float.parseFloat(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -365,9 +365,9 @@ public final class NumberTools
 	 * @param defaultValue Float value to return if the conversion fails.
 	 * @return The float instance.
 	 */
-	public static Float toFloatInstance (Object value, float defaultValue)
+	public static Float toFloatInstance(Object value, float defaultValue)
 	{
-		return new Float (toFloat (value, defaultValue));
+		return new Float(toFloat(value, defaultValue));
 	}
 
 	/**
@@ -376,23 +376,23 @@ public final class NumberTools
 	 * @param value The string value.
 	 * @return The float instance.
 	 */
-	public static Float toFloatInstance (Object value)
+	public static Float toFloatInstance(Object value)
 	{
 		if (value == null)
 		{
 			return null;
 		}
 
-		String strValue = value.toString ();
+		String strValue = value.toString();
 
-		if (strValue.length () == 0)
+		if (strValue.length() == 0)
 		{
 			return null;
 		}
 
 		try
 		{
-			return new Float (strValue.trim ());
+			return new Float(strValue.trim());
 		}
 		catch (NumberFormatException x)
 		{
@@ -407,11 +407,11 @@ public final class NumberTools
 	 * @param value The value to convert.
 	 * @return A roman string representation of the value.
 	 */
-	public static String romanNumber (int value)
+	public static String romanNumber(int value)
 	{
 		if (value >= 30)
 		{
-			return String.valueOf (value);
+			return String.valueOf(value);
 		}
 
 		return romanValues[value - 1];

@@ -29,23 +29,23 @@ import org.junit.Test;
 public class KeyedValueTest
 {
 	@Test
-	public void equalKeyCompair ()
+	public void equalKeyCompair()
 	{
-		KeyedValue<String, String> kv1 = new KeyedValue<String, String> ("key", "value1");
-		KeyedValue<String, String> kv2 = new KeyedValue<String, String> ("key", "value2");
+		KeyedValue<String, String> kv1 = new KeyedValue<String, String>("key", "value1");
+		KeyedValue<String, String> kv2 = new KeyedValue<String, String>("key", "value2");
 
-		assertThat (kv1, equalTo (kv2));
-		assertThat (kv2, equalTo (kv1));
-		assertThat (kv1.hashCode (), equalTo (kv2.hashCode ()));
+		assertThat(kv1, equalTo(kv2));
+		assertThat(kv2, equalTo(kv1));
+		assertThat(kv1.hashCode(), equalTo(kv2.hashCode()));
 	}
 
 	@Test
-	public void notEqualKeyCompair ()
+	public void notEqualKeyCompair()
 	{
-		KeyedValue<String, String> kv1 = new KeyedValue<String, String> ("key1", "value1");
-		KeyedValue<String, String> kv2 = new KeyedValue<String, String> ("key2", "value2");
+		KeyedValue<String, String> kv1 = new KeyedValue<String, String>("key1", "value1");
+		KeyedValue<String, String> kv2 = new KeyedValue<String, String>("key2", "value2");
 
-		assertThat (kv1, not (equalTo (kv2)));
-		assertThat (kv2, not (equalTo (kv1)));
+		assertThat(kv1, not(equalTo(kv2)));
+		assertThat(kv2, not(equalTo(kv1)));
 	}
 }

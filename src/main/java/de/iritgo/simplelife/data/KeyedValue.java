@@ -41,7 +41,7 @@ public class KeyedValue<Key, Value>
 	 * @param key The key
 	 * @param value The value
 	 */
-	public KeyedValue (Key key, Value value)
+	public KeyedValue(Key key, Value value)
 	{
 		this.key = key;
 		this.value = value;
@@ -52,7 +52,7 @@ public class KeyedValue<Key, Value>
 	 * 
 	 * @return The key
 	 */
-	public Key getKey ()
+	public Key getKey()
 	{
 		return key;
 	}
@@ -62,7 +62,7 @@ public class KeyedValue<Key, Value>
 	 * 
 	 * @param key The key
 	 */
-	public void setKey (Key key)
+	public void setKey(Key key)
 	{
 		this.key = key;
 	}
@@ -72,7 +72,7 @@ public class KeyedValue<Key, Value>
 	 * 
 	 * @return The value
 	 */
-	public Value getValue ()
+	public Value getValue()
 	{
 		return value;
 	}
@@ -82,7 +82,7 @@ public class KeyedValue<Key, Value>
 	 * 
 	 * @param value The value
 	 */
-	public void setValue (Value value)
+	public void setValue(Value value)
 	{
 		this.value = value;
 	}
@@ -91,7 +91,7 @@ public class KeyedValue<Key, Value>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -103,15 +103,15 @@ public class KeyedValue<Key, Value>
 			return false;
 		}
 
-		return key.equals (((KeyedValue<Key, Value>) obj).key);
+		return key.equals(((KeyedValue<Key, Value>) obj).key);
 	}
 
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode ()
+	public int hashCode()
 	{
-		return key.hashCode ();
+		return key.hashCode();
 	}
 }

@@ -39,7 +39,7 @@ public class ArrayIterator<ElementType> implements Iterator<ElementType>, Iterab
 	 * 
 	 * @param array The array to iterate.
 	 */
-	public ArrayIterator (ElementType[] array)
+	public ArrayIterator(ElementType[] array)
 	{
 		this.array = array;
 		pos = 0;
@@ -50,7 +50,7 @@ public class ArrayIterator<ElementType> implements Iterator<ElementType>, Iterab
 	 * 
 	 * @return True if another pair is available.
 	 */
-	public boolean hasNext ()
+	public boolean hasNext()
 	{
 		return (array != null) && (pos < array.length);
 	}
@@ -61,7 +61,7 @@ public class ArrayIterator<ElementType> implements Iterator<ElementType>, Iterab
 	 * 
 	 * @return The next element.
 	 */
-	public ElementType next ()
+	public ElementType next()
 	{
 		return array[pos++];
 	}
@@ -69,7 +69,7 @@ public class ArrayIterator<ElementType> implements Iterator<ElementType>, Iterab
 	/**
 	 * This method is currently not implemented and does nothing!
 	 */
-	public void remove ()
+	public void remove()
 	{
 	}
 
@@ -82,7 +82,7 @@ public class ArrayIterator<ElementType> implements Iterator<ElementType>, Iterab
 	 * String[][ a = new String[] { "a", "b", "c", "d", "e" }; for (String s :
 	 * new ArrayIterator<String> (a)) { System.out.println (s); }
 	 */
-	public Iterator<ElementType> iterator ()
+	public Iterator<ElementType> iterator()
 	{
 		return this;
 	}

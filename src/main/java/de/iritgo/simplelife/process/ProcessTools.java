@@ -22,11 +22,11 @@ package de.iritgo.simplelife.process;
 
 public class ProcessTools
 {
-	public static void sleep (int millis)
+	public static void sleep(int millis)
 	{
 		try
 		{
-			Thread.sleep (millis);
+			Thread.sleep(millis);
 		}
 		catch (InterruptedException x)
 		{

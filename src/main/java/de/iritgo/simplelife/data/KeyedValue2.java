@@ -46,7 +46,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * @param v1 The first value
 	 * @param v2 The second value
 	 */
-	public KeyedValue2 (Key key, V1 v1, V2 v2)
+	public KeyedValue2(Key key, V1 v1, V2 v2)
 	{
 		this.key = key;
 		this.v1 = v1;
@@ -58,7 +58,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * 
 	 * @return The key
 	 */
-	public Key getKey ()
+	public Key getKey()
 	{
 		return key;
 	}
@@ -68,7 +68,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * 
 	 * @param key The key
 	 */
-	public void setKey (Key key)
+	public void setKey(Key key)
 	{
 		this.key = key;
 	}
@@ -78,7 +78,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * 
 	 * @return The first value
 	 */
-	public V1 getV1 ()
+	public V1 getV1()
 	{
 		return v1;
 	}
@@ -88,7 +88,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * 
 	 * @param v1 The first value
 	 */
-	public void setV1 (V1 v1)
+	public void setV1(V1 v1)
 	{
 		this.v1 = v1;
 	}
@@ -98,7 +98,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * 
 	 * @return The second value
 	 */
-	public V2 getV2 ()
+	public V2 getV2()
 	{
 		return v2;
 	}
@@ -108,7 +108,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * 
 	 * @param v2 The second value
 	 */
-	public void setV2 (V2 v2)
+	public void setV2(V2 v2)
 	{
 		this.v2 = v2;
 	}
@@ -117,7 +117,7 @@ public class KeyedValue2<Key, V1, V2>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -129,15 +129,15 @@ public class KeyedValue2<Key, V1, V2>
 			return false;
 		}
 
-		return key.equals (((KeyedValue2<Key, V1, V2>) obj).key);
+		return key.equals(((KeyedValue2<Key, V1, V2>) obj).key);
 	}
 
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode ()
+	public int hashCode()
 	{
-		return key.hashCode ();
+		return key.hashCode();
 	}
 }

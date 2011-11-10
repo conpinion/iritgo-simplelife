@@ -29,55 +29,55 @@ public class IntRange implements Iterable<Integer>
 
 	private int to;
 
-	public IntRange (int from, int to)
+	public IntRange(int from, int to)
 	{
 		this.from = from;
 		this.to = to;
 	}
 
-	public IntRange (int from)
+	public IntRange(int from)
 	{
 		this.from = from;
 		this.to = Integer.MAX_VALUE;
 	}
 
-	public static IntRange N ()
+	public static IntRange N()
 	{
-		return new IntRange (1);
+		return new IntRange(1);
 	}
 
-	public static IntRange N0 ()
+	public static IntRange N0()
 	{
-		return new IntRange (0);
+		return new IntRange(0);
 	}
 
-	public int getFrom ()
+	public int getFrom()
 	{
 		return from;
 	}
 
-	public int getTo ()
+	public int getTo()
 	{
 		return to;
 	}
 
-	public Iterator<Integer> iterator ()
+	public Iterator<Integer> iterator()
 	{
-		return new Iterator<Integer> ()
+		return new Iterator<Integer>()
 		{
 			private int current = from;
 
-			public boolean hasNext ()
+			public boolean hasNext()
 			{
 				return current <= to;
 			}
 
-			public Integer next ()
+			public Integer next()
 			{
 				return current++;
 			}
 
-			public void remove ()
+			public void remove()
 			{
 			}
 		};

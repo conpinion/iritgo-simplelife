@@ -32,5 +32,5 @@ public interface Function3<RES, ARG_1, ARG_2, ARG_3>
 	 * @param a2 Argument 2
 	 * @param a3 Argument 3
 	 */
-	public RES eval (ARG_1 a1, ARG_2 a2, ARG_3 a3);
+	public RES eval(ARG_1 a1, ARG_2 a2, ARG_3 a3);
 }

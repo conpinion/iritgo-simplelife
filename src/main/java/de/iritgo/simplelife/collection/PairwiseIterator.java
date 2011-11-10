@@ -50,11 +50,11 @@ public class PairwiseIterator<ElementType, FirstType, SecondType> implements Ite
 	 * 
 	 * @param collection The collection to iterate.
 	 */
-	public PairwiseIterator (Collection<ElementType> collection)
+	public PairwiseIterator(Collection<ElementType> collection)
 	{
-		pos = (collection != null) ? collection.iterator () : null;
+		pos = (collection != null) ? collection.iterator() : null;
 		index = 0;
-		size = (collection != null) ? collection.size () : 0;
+		size = (collection != null) ? collection.size() : 0;
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class PairwiseIterator<ElementType, FirstType, SecondType> implements Ite
 	 * 
 	 * @param array The array to iterate.
 	 */
-	public PairwiseIterator (ElementType[] array)
+	public PairwiseIterator(ElementType[] array)
 	{
-		pos = new ArrayIterator<ElementType> (array);
+		pos = new ArrayIterator<ElementType>(array);
 		index = 0;
 		size = (array != null) ? array.length : 0;
 	}
@@ -74,7 +74,7 @@ public class PairwiseIterator<ElementType, FirstType, SecondType> implements Ite
 	 * 
 	 * @return True if another pair is available.
 	 */
-	public boolean hasNext ()
+	public boolean hasNext()
 	{
 		return (index + 1) < size;
 	}
@@ -86,17 +86,17 @@ public class PairwiseIterator<ElementType, FirstType, SecondType> implements Ite
 	 * @return The next pair.
 	 */
 	@SuppressWarnings("unchecked")
-	public Pair<FirstType, SecondType> next () throws ClassCastException
+	public Pair<FirstType, SecondType> next() throws ClassCastException
 	{
 		index += 2;
 
-		return new Pair<FirstType, SecondType> ((FirstType) pos.next (), (SecondType) pos.next ());
+		return new Pair<FirstType, SecondType>((FirstType) pos.next(), (SecondType) pos.next());
 	}
 
 	/**
 	 * This method is currently not implemented and does nothing!
 	 */
-	public void remove ()
+	public void remove()
 	{
 	}
 
@@ -111,7 +111,7 @@ public class PairwiseIterator<ElementType, FirstType, SecondType> implements Ite
 	 * String> (l)) { System.out.println ("(" + p.getFirst () + "," +
 	 * p.getSecond () + ")"); }
 	 */
-	public Iterator<Pair<FirstType, SecondType>> iterator ()
+	public Iterator<Pair<FirstType, SecondType>> iterator()
 	{
 		return this;
 	}

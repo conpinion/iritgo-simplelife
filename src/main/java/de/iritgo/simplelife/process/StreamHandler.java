@@ -37,48 +37,48 @@ public class StreamHandler implements Runnable
 
 	Thread thread;
 
-	public StreamHandler (InputStream is, boolean startImmediately)
+	public StreamHandler(InputStream is, boolean startImmediately)
 	{
-		this.name = "StreamHandler-" + this.hashCode ();
+		this.name = "StreamHandler-" + this.hashCode();
 		this.is = is;
 
 		if (startImmediately)
 		{
-			start ();
+			start();
 		}
 	}
 
-	public StreamHandler (String name, InputStream is, boolean startImmediately)
+	public StreamHandler(String name, InputStream is, boolean startImmediately)
 	{
 		this.name = name;
 		this.is = is;
 
 		if (startImmediately)
 		{
-			start ();
+			start();
 		}
 	}
 
-	public void start ()
+	public void start()
 	{
-		thread = new Thread (this);
-		thread.start ();
+		thread = new Thread(this);
+		thread.start();
 	}
 
-	public void run ()
+	public void run()
 	{
 		try
 		{
-			InputStreamReader isr = new InputStreamReader (is);
-			BufferedReader br = new BufferedReader (isr);
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader br = new BufferedReader(isr);
 			@SuppressWarnings("unused")
 			String line = null;
 
-			while ((line = br.readLine ()) != null)
+			while ((line = br.readLine()) != null)
 			{
 			}
 
-			is.close ();
+			is.close();
 		}
 		catch (Exception ignored)
 		{

@@ -35,11 +35,11 @@ public class FileTools
 	 * @param file The file to check
 	 * @return True if parent is a parent directory of file
 	 */
-	public static boolean isParent (File parent, File file)
+	public static boolean isParent(File parent, File file)
 	{
 		try
 		{
-			return file.getCanonicalPath ().startsWith (parent.getCanonicalPath ());
+			return file.getCanonicalPath().startsWith(parent.getCanonicalPath());
 		}
 		catch (Exception x)
 		{

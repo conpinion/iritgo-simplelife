@@ -73,13 +73,13 @@ public class ProcessCommunicator
 	 * @param commandParams Optionally command parameters
 	 * @throws IOException In case of an io exception
 	 */
-	public ProcessCommunicator (String commandPath, String commandParams)
+	public ProcessCommunicator(String commandPath, String commandParams)
 	{
-		commandFile = new File (commandPath);
+		commandFile = new File(commandPath);
 
-		if (! commandFile.isFile ())
+		if (! commandFile.isFile())
 		{
-			throw new IllegalArgumentException ("Command " + commandPath + " not found");
+			throw new IllegalArgumentException("Command " + commandPath + " not found");
 		}
 
 		this.commandParams = commandParams;
@@ -91,9 +91,9 @@ public class ProcessCommunicator
 	 * @param commandPath The system command to execute
 	 * @throws IOException In case of an io exception
 	 */
-	public ProcessCommunicator (String commandPath)
+	public ProcessCommunicator(String commandPath)
 	{
-		this (commandPath, null);
+		this(commandPath, null);
 	}
 
 	/**
@@ -101,32 +101,32 @@ public class ProcessCommunicator
 	 *
 	 * @throws IOException In case of a failure
 	 */
-	public void start () throws IOException
+	public void start() throws IOException
 	{
-		process = Runtime.getRuntime ().exec (
-						commandFile.getAbsolutePath () + (commandParams != null ? " " + commandParams : ""));
-		processIn = new PrintWriter (process.getOutputStream ());
-		processOut = new NonblockingStream (process.getInputStream ());
-		processError = new NonblockingStream (process.getErrorStream ());
-		processOut.start ();
-		processError.start ();
-		timeoutTimer = new Timer ();
+		process = Runtime.getRuntime().exec(
+						commandFile.getAbsolutePath() + (commandParams != null ? " " + commandParams : ""));
+		processIn = new PrintWriter(process.getOutputStream());
+		processOut = new NonblockingStream(process.getInputStream());
+		processError = new NonblockingStream(process.getErrorStream());
+		processOut.start();
+		processError.start();
+		timeoutTimer = new Timer();
 	}
 
 	/**
 	 * Terminate the process and the communication stream threads.
 	 */
-	public void terminate ()
+	public void terminate()
 	{
 		if (timeoutTask != null)
 		{
-			timeoutTask.cancel ();
+			timeoutTask.cancel();
 			timeoutTask = null;
 		}
 
-		processOut.terminate ();
-		processError.terminate ();
-		process.destroy ();
+		processOut.terminate();
+		processError.terminate();
+		process.destroy();
 		process = null;
 	}
 
@@ -135,9 +135,9 @@ public class ProcessCommunicator
 	 *
 	 * @return The process output stream data
 	 */
-	public String getProcessOutput ()
+	public String getProcessOutput()
 	{
-		return processOut.getDataAsString ();
+		return processOut.getDataAsString();
 	}
 
 	/**
@@ -145,9 +145,9 @@ public class ProcessCommunicator
 	 *
 	 * @return The process error stream data
 	 */
-	public String getProcessError ()
+	public String getProcessError()
 	{
-		return processError.getDataAsString ();
+		return processError.getDataAsString();
 	}
 
 	/**
@@ -155,11 +155,11 @@ public class ProcessCommunicator
 	 *
 	 * @param data The data to send
 	 */
-	public void send (String data)
+	public void send(String data)
 	{
-		processIn.print (data + "\n");
-		processIn.flush ();
-		setTimeout (timeout);
+		processIn.print(data + "\n");
+		processIn.flush();
+		setTimeout(timeout);
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class ProcessCommunicator
 	 *
 	 * @return True if the process is running
 	 */
-	public boolean isRunning ()
+	public boolean isRunning()
 	{
 		return process != null;
 	}
@@ -179,26 +179,26 @@ public class ProcessCommunicator
 	 *
 	 * @param seconds The timeout duration in seconds
 	 */
-	public void setTimeout (int seconds)
+	public void setTimeout(int seconds)
 	{
 		this.timeout = seconds;
 
 		if (timeoutTask != null)
 		{
-			timeoutTask.cancel ();
+			timeoutTask.cancel();
 		}
 		else
 		{
-			timeoutTask = new TimerTask ()
+			timeoutTask = new TimerTask()
 			{
 				@Override
-				public void run ()
+				public void run()
 				{
-					System.out.println ("************************");
+					System.out.println("************************");
 				}
 			};
 		}
 
-		timeoutTimer.schedule (timeoutTask, seconds * 1000);
+		timeoutTimer.schedule(timeoutTask, seconds * 1000);
 	}
 }

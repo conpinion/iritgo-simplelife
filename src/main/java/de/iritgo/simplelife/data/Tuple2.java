@@ -37,7 +37,7 @@ public class Tuple2<T1, T2>
 	 * @param _1 First component.
 	 * @param _2 Second component.
 	 */
-	public Tuple2 (T1 _1, T2 _2)
+	public Tuple2(T1 _1, T2 _2)
 	{
 		this._1 = _1;
 		this._2 = _2;
@@ -48,7 +48,7 @@ public class Tuple2<T1, T2>
 	 *
 	 * @return The first component.
 	 */
-	public T1 get1 ()
+	public T1 get1()
 	{
 		return _1;
 	}
@@ -58,7 +58,7 @@ public class Tuple2<T1, T2>
 	 *
 	 * @param _1 The new first component.
 	 */
-	public void set1 (T1 _1)
+	public void set1(T1 _1)
 	{
 		this._1 = _1;
 	}
@@ -68,7 +68,7 @@ public class Tuple2<T1, T2>
 	 *
 	 * @return The second component.
 	 */
-	public T2 get2 ()
+	public T2 get2()
 	{
 		return _2;
 	}
@@ -78,7 +78,7 @@ public class Tuple2<T1, T2>
 	 *
 	 * @param _2 The new second component.
 	 */
-	public void set2 (T2 _2)
+	public void set2(T2 _2)
 	{
 		this._2 = _2;
 	}
@@ -87,7 +87,7 @@ public class Tuple2<T1, T2>
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -100,24 +100,24 @@ public class Tuple2<T1, T2>
 		}
 
 		Tuple2<T1, T2> o = (Tuple2<T1, T2>) obj;
-		return (_1 != null ? _1.equals (o._1) : o._1 == null) && (_2 != null ? _2.equals (o._2) : o._2 == null);
+		return (_1 != null ? _1.equals(o._1) : o._1 == null) && (_2 != null ? _2.equals(o._2) : o._2 == null);
 	}
 
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode ()
+	public int hashCode()
 	{
-		return (_1 != null ? _1.hashCode () : 0) + 11 * (_2 != null ? _2.hashCode () : 0);
+		return (_1 != null ? _1.hashCode() : 0) + 11 * (_2 != null ? _2.hashCode() : 0);
 	}
 
 	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return "(" + (_1 != null ? _1.toString () : "<null>") + "," + (_2 != null ? _2.toString () : "<null>") + ")";
+		return "(" + (_1 != null ? _1.toString() : "<null>") + "," + (_2 != null ? _2.toString() : "<null>") + ")";
 	}
 }

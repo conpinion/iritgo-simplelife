@@ -34,55 +34,55 @@ import de.iritgo.simplelife.math.Pair;
 public class JointIteratorTest
 {
 	@Test
-	public void intSeqCollection () throws Exception
+	public void intSeqCollection() throws Exception
 	{
-		List<String> l = new LinkedList ();
-		l.add ("a");
-		l.add ("b");
-		l.add ("c");
+		List<String> l = new LinkedList();
+		l.add("a");
+		l.add("b");
+		l.add("c");
 
-		JointIterator i = new JointIterator (new IntRange (1).iterator (), l.iterator ());
+		JointIterator i = new JointIterator(new IntRange(1).iterator(), l.iterator());
 
-		assertThat (i.hasNext (), is (true));
-		Pair<Integer, String> p = i.next ();
-		assertThat (p.get1 (), equalTo (1));
-		assertThat (p.get2 (), equalTo ("a"));
-		assertThat (i.hasNext (), is (true));
-		p = i.next ();
-		assertThat (p.get1 (), equalTo (2));
-		assertThat (p.get2 (), equalTo ("b"));
-		assertThat (i.hasNext (), is (true));
-		p = i.next ();
-		assertThat (p.get1 (), equalTo (3));
-		assertThat (p.get2 (), equalTo ("c"));
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(true));
+		Pair<Integer, String> p = i.next();
+		assertThat(p.get1(), equalTo(1));
+		assertThat(p.get2(), equalTo("a"));
+		assertThat(i.hasNext(), is(true));
+		p = i.next();
+		assertThat(p.get1(), equalTo(2));
+		assertThat(p.get2(), equalTo("b"));
+		assertThat(i.hasNext(), is(true));
+		p = i.next();
+		assertThat(p.get1(), equalTo(3));
+		assertThat(p.get2(), equalTo("c"));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void emptyArray () throws Exception
+	public void emptyArray() throws Exception
 	{
 		String[] array = new String[]
 		{};
 
-		Iterator<String> i = new ArrayIterator<String> (array);
+		Iterator<String> i = new ArrayIterator<String>(array);
 
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void iteration () throws Exception
+	public void iteration() throws Exception
 	{
 		String[] array = new String[]
 		{
 						"a", "b"
 		};
 
-		Iterator<String> i = new ArrayIterator<String> (array);
+		Iterator<String> i = new ArrayIterator<String>(array);
 
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo ("a"));
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo ("b"));
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo("a"));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo("b"));
+		assertThat(i.hasNext(), is(false));
 	}
 }

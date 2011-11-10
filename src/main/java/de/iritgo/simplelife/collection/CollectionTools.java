@@ -20,11 +20,10 @@
 package de.iritgo.simplelife.collection;
 
 
-import de.iritgo.simplelife.math.IntRange;
-import de.iritgo.simplelife.math.Pair;
-import de.iritgo.simplelife.math.Predicate;
-import de.iritgo.simplelife.process.Procedure1;
 import java.util.Collection;
+import de.iritgo.simplelife.math.*;
+import de.iritgo.simplelife.process.Procedure1;
+import de.iritgo.simplelife.tools.Option;
 
 
 /**
@@ -39,11 +38,11 @@ public final class CollectionTools
 	 * @param object The object to search for.
 	 * @return True if the object was found.
 	 */
-	public static boolean contains (Object[] array, Object object)
+	public static boolean contains(Object[] array, Object object)
 	{
 		for (int i = 0; i < array.length; ++i)
 		{
-			if (array[i].equals (object))
+			if (array[i].equals(object))
 			{
 				return true;
 			}
@@ -59,7 +58,7 @@ public final class CollectionTools
 	 * @param object The object to search for.
 	 * @return True if the object was found.
 	 */
-	public static boolean contains (int[] array, int object)
+	public static boolean contains(int[] array, int object)
 	{
 		for (int i = 0; i < array.length; ++i)
 		{
@@ -80,17 +79,17 @@ public final class CollectionTools
 	 * @param predicate
 	 * @return The element or null if none was found.
 	 */
-	public static <T> T find (Collection<T> collection, Predicate<T> predicate)
+	public static <T> Option<T> find(Collection<T> collection, Predicate<T> predicate)
 	{
 		for (T t : collection)
 		{
-			if (predicate.eval (t))
+			if (predicate.eval(t))
 			{
-				return t;
+				return Option.Full(t);
 			}
 		}
 
-		return null;
+		return Option.Empty;
 	}
 
 	/**
@@ -101,13 +100,13 @@ public final class CollectionTools
 	 * @param predicate
 	 * @return The element index or -1 if none was found
 	 */
-	public static <T> Integer findIndex (Collection<T> collection, Predicate<T> predicate)
+	public static <T> Integer findIndex(Collection<T> collection, Predicate<T> predicate)
 	{
-		for (Pair<T, Integer> it : new JointIterator<T, Integer> (collection, IntRange.N0 ()))
+		for (Pair<T, Integer> it : new JointIterator<T, Integer>(collection, IntRange.N0()))
 		{
-			if (predicate.eval (it.get1 ()))
+			if (predicate.eval(it.get1()))
 			{
-				return it.get2 ();
+				return it.get2();
 			}
 		}
 
@@ -121,11 +120,11 @@ public final class CollectionTools
 	 * @param collection The collection
 	 * @param procedure The procedure to call
 	 */
-	public static <T> void forEach (Collection<T> collection, Procedure1<T> procedure)
+	public static <T> void forEach(Collection<T> collection, Procedure1<T> procedure)
 	{
 		for (T elem : collection)
 		{
-			procedure.execute (elem);
+			procedure.execute(elem);
 		}
 	}
 }

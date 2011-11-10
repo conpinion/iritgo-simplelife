@@ -28,28 +28,28 @@ import org.junit.Test;
 public class PairObjectArrayConverterTest
 {
 	@Test
-	public void conversionFromPairToObjectArray () throws Exception
+	public void conversionFromPairToObjectArray() throws Exception
 	{
-		Pair<Integer, Integer> pair = new Pair<Integer, Integer> (123, 456);
+		Pair<Integer, Integer> pair = new Pair<Integer, Integer>(123, 456);
 
-		Object[] array = new PairObjectArrayConverter<Integer, Integer> ().convertFromType1 (pair);
+		Object[] array = new PairObjectArrayConverter<Integer, Integer>().convertFromType1(pair);
 
-		assertThat (array.length, equalTo (2));
-		assertThat ((Integer) array[0], equalTo (123));
-		assertThat ((Integer) array[1], equalTo (456));
+		assertThat(array.length, equalTo(2));
+		assertThat((Integer) array[0], equalTo(123));
+		assertThat((Integer) array[1], equalTo(456));
 	}
 
 	@Test
-	public void conversionFromObjectArrayToPair () throws Exception
+	public void conversionFromObjectArrayToPair() throws Exception
 	{
 		Object[] array = new Object[]
 		{
 						123, 456
 		};
 
-		Pair<Integer, Integer> pair = new PairObjectArrayConverter<Integer, Integer> ().convertFromType2 (array);
+		Pair<Integer, Integer> pair = new PairObjectArrayConverter<Integer, Integer>().convertFromType2(array);
 
-		assertThat (pair.get1 (), equalTo (123));
-		assertThat (pair.get2 (), equalTo (456));
+		assertThat(pair.get1(), equalTo(123));
+		assertThat(pair.get2(), equalTo(456));
 	}
 }

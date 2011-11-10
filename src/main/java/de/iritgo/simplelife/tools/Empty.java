@@ -23,31 +23,31 @@ package de.iritgo.simplelife.tools;
 public class Empty<T> extends Option<T>
 {
 	@Override
-	public boolean empty ()
+	public boolean empty()
 	{
 		return true;
 	}
 
 	@Override
-	public boolean full ()
+	public boolean full()
 	{
 		return false;
 	}
 
 	@Override
-	public T get ()
+	public T get()
 	{
-		throw new EmptyOptionException ();
+		throw new EmptyOptionException();
 	}
 
 	@Override
-	public T getOrElse (T defaultElem)
+	public T getOrElse(T defaultElem)
 	{
 		return defaultElem;
 	}
 
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		return obj instanceof Empty;
 	}

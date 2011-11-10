@@ -31,27 +31,26 @@ import de.iritgo.simplelife.data.DataConverter;
 public class ElementConvertingListDecoratorTest
 {
 	@Test
-	public void accessor () throws Exception
+	public void accessor() throws Exception
 	{
-		List<String> sl = new LinkedList<String> ();
-		sl.add ("123");
-		sl.add ("456");
+		List<String> sl = new LinkedList<String>();
+		sl.add("123");
+		sl.add("456");
 
-		List<Integer> il = new ElementConvertingListDecorator<String, Integer> (sl,
-						new DataConverter<String, Integer> ()
-						{
-							public Integer convertFromType1 (String o)
-							{
-								return Integer.valueOf (o);
-							}
+		List<Integer> il = new ElementConvertingListDecorator<String, Integer>(sl, new DataConverter<String, Integer>()
+		{
+			public Integer convertFromType1(String o)
+			{
+				return Integer.valueOf(o);
+			}
 
-							public String convertFromType2 (Integer o)
-							{
-								return o.toString ();
-							}
-						});
+			public String convertFromType2(Integer o)
+			{
+				return o.toString();
+			}
+		});
 
-		assertThat (il.get (0), equalTo (123));
-		assertThat (il.get (1), equalTo (456));
+		assertThat(il.get(0), equalTo(123));
+		assertThat(il.get(1), equalTo(456));
 	}
 }

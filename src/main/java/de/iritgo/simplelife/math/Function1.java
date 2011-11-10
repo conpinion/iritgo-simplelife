@@ -30,5 +30,5 @@ public interface Function1<R, X>
 	 * 
 	 * @param x Parameter x
 	 */
-	public R eval (X x);
+	public R eval(X x);
 }

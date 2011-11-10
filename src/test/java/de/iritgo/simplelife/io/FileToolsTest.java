@@ -33,22 +33,22 @@ public class FileToolsTest
 	private File tmpFile;
 
 	@Before
-	public void createTmpFile () throws Exception
+	public void createTmpFile() throws Exception
 	{
-		tmpFile = File.createTempFile ("de.iritgo.simplelife.FileToolsTest", "test");
+		tmpFile = File.createTempFile("de.iritgo.simplelife.FileToolsTest", "test");
 	}
 
 	@After
-	public void deleteTmpFile ()
+	public void deleteTmpFile()
 	{
-		tmpFile.delete ();
+		tmpFile.delete();
 	}
 
 	@Test
-	public void parentDir ()
+	public void parentDir()
 	{
-		boolean isParent = FileTools.isParent (tmpFile.getParentFile (), tmpFile);
+		boolean isParent = FileTools.isParent(tmpFile.getParentFile(), tmpFile);
 
-		assertThat (isParent, is (true));
+		assertThat(isParent, is(true));
 	}
 }

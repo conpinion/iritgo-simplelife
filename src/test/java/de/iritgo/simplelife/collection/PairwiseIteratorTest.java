@@ -31,40 +31,40 @@ import de.iritgo.simplelife.math.Pair;
 public class PairwiseIteratorTest
 {
 	@Test
-	public void nullArray () throws Exception
+	public void nullArray() throws Exception
 	{
 		String[] array = null;
 
-		Iterator<Pair<String, String>> i = new PairwiseIterator<String, String, String> (array);
+		Iterator<Pair<String, String>> i = new PairwiseIterator<String, String, String>(array);
 
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void emptyArray () throws Exception
+	public void emptyArray() throws Exception
 	{
 		String[] array = new String[]
 		{};
 
-		Iterator<Pair<String, String>> i = new PairwiseIterator<String, String, String> (array);
+		Iterator<Pair<String, String>> i = new PairwiseIterator<String, String, String>(array);
 
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void iteration () throws Exception
+	public void iteration() throws Exception
 	{
 		String[] array = new String[]
 		{
 						"a", "b", "c", "d", "e"
 		};
 
-		Iterator<Pair<String, String>> i = new PairwiseIterator<String, String, String> (array);
+		Iterator<Pair<String, String>> i = new PairwiseIterator<String, String, String>(array);
 
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (new Pair<String, String> ("a", "b")));
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (new Pair<String, String> ("c", "d")));
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(new Pair<String, String>("a", "b")));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(new Pair<String, String>("c", "d")));
+		assertThat(i.hasNext(), is(false));
 	}
 }

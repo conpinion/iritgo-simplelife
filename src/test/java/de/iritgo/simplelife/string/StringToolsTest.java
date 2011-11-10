@@ -31,101 +31,101 @@ import org.junit.Test;
 public class StringToolsTest
 {
 	@Test
-	public void empty () throws Exception
+	public void empty() throws Exception
 	{
-		assertThat (StringTools.isTrimEmpty (null), is (true));
-		assertThat (StringTools.isTrimEmpty (""), is (true));
-		assertThat (StringTools.isTrimEmpty (" "), is (true));
-		assertThat (StringTools.isTrimEmpty ("a"), is (false));
-		assertThat (StringTools.isTrimEmpty (" a "), is (false));
-		assertThat (StringTools.isNotTrimEmpty (""), is (false));
-		assertThat (StringTools.isNotTrimEmpty ("a"), is (true));
+		assertThat(StringTools.isTrimEmpty(null), is(true));
+		assertThat(StringTools.isTrimEmpty(""), is(true));
+		assertThat(StringTools.isTrimEmpty(" "), is(true));
+		assertThat(StringTools.isTrimEmpty("a"), is(false));
+		assertThat(StringTools.isTrimEmpty(" a "), is(false));
+		assertThat(StringTools.isNotTrimEmpty(""), is(false));
+		assertThat(StringTools.isNotTrimEmpty("a"), is(true));
 	}
 
 	@Test
-	public void appendIf () throws Exception
+	public void appendIf() throws Exception
 	{
-		StringBuilder sb = new StringBuilder ("abc");
+		StringBuilder sb = new StringBuilder("abc");
 
-		StringTools.appendIf (true, sb, "xyz");
+		StringTools.appendIf(true, sb, "xyz");
 
-		assertThat (sb.toString (), equalTo ("abcxyz"));
+		assertThat(sb.toString(), equalTo("abcxyz"));
 	}
 
 	@Test
-	public void appendWithDelimiter () throws Exception
+	public void appendWithDelimiter() throws Exception
 	{
-		StringBuilder sb = new StringBuilder ("");
+		StringBuilder sb = new StringBuilder("");
 
-		StringTools.appendWithDelimiter (sb, "abc", ",");
-		assertThat (sb.toString (), equalTo ("abc"));
+		StringTools.appendWithDelimiter(sb, "abc", ",");
+		assertThat(sb.toString(), equalTo("abc"));
 
-		StringTools.appendWithDelimiter (sb, "xyz", ",");
-		assertThat (sb.toString (), equalTo ("abc,xyz"));
+		StringTools.appendWithDelimiter(sb, "xyz", ",");
+		assertThat(sb.toString(), equalTo("abc,xyz"));
 	}
 
 	@Test
-	public void appendArrayWithDelimiter () throws Exception
+	public void appendArrayWithDelimiter() throws Exception
 	{
-		StringBuilder sb = new StringBuilder ("");
+		StringBuilder sb = new StringBuilder("");
 		String[] strings1 =
 		{};
 
-		StringTools.appendWithDelimiter (sb, strings1, ",");
+		StringTools.appendWithDelimiter(sb, strings1, ",");
 
-		assertThat (sb.toString (), equalTo (""));
+		assertThat(sb.toString(), equalTo(""));
 
-		sb = new StringBuilder ("");
+		sb = new StringBuilder("");
 		String[] strings2 =
 		{
 			"abc"
 		};
-		StringTools.appendWithDelimiter (sb, strings2, ",");
+		StringTools.appendWithDelimiter(sb, strings2, ",");
 
-		assertThat (sb.toString (), equalTo ("abc"));
+		assertThat(sb.toString(), equalTo("abc"));
 
-		sb = new StringBuilder ("");
+		sb = new StringBuilder("");
 		String[] strings3 =
 		{
 						"abc", "efg", "hij"
 		};
 
-		StringTools.appendWithDelimiter (sb, strings3, ",");
+		StringTools.appendWithDelimiter(sb, strings3, ",");
 
-		assertThat (sb.toString (), equalTo ("abc,efg,hij"));
+		assertThat(sb.toString(), equalTo("abc,efg,hij"));
 	}
 
 	@Test
-	public void normalizeMACAddressWithColons ()
+	public void normalizeMACAddressWithColons()
 	{
-		assertThat (StringTools.normalizeMACAddress ("1A:2B:3C:4D:5E:6F"), equalTo ("1A:2B:3C:4D:5E:6F"));
+		assertThat(StringTools.normalizeMACAddress("1A:2B:3C:4D:5E:6F"), equalTo("1A:2B:3C:4D:5E:6F"));
 	}
 
 	@Test
-	public void normalizeMACAddressWithHyphens ()
+	public void normalizeMACAddressWithHyphens()
 	{
-		assertThat (StringTools.normalizeMACAddress ("1A-2B-3C-4D-5E-6F"), equalTo ("1A:2B:3C:4D:5E:6F"));
+		assertThat(StringTools.normalizeMACAddress("1A-2B-3C-4D-5E-6F"), equalTo("1A:2B:3C:4D:5E:6F"));
 	}
 
 	@Test
-	public void normalizeMACAddressWithoutDelimiters ()
+	public void normalizeMACAddressWithoutDelimiters()
 	{
-		assertThat (StringTools.normalizeMACAddress ("1A2B3C4D5E6F"), equalTo ("1A:2B:3C:4D:5E:6F"));
+		assertThat(StringTools.normalizeMACAddress("1A2B3C4D5E6F"), equalTo("1A:2B:3C:4D:5E:6F"));
 	}
 
 	@Test
-	public void normalizeMACAddressWithLowerCaseChars ()
+	public void normalizeMACAddressWithLowerCaseChars()
 	{
-		assertThat (StringTools.normalizeMACAddress ("1a:2b:3c:4d:5e:6f"), equalTo ("1A:2B:3C:4D:5E:6F"));
+		assertThat(StringTools.normalizeMACAddress("1a:2b:3c:4d:5e:6f"), equalTo("1A:2B:3C:4D:5E:6F"));
 	}
 
 	@Test
-	public void normalizeBadMACAddress ()
+	public void normalizeBadMACAddress()
 	{
 		try
 		{
-			StringTools.normalizeMACAddress ("invalid");
-			fail ();
+			StringTools.normalizeMACAddress("invalid");
+			fail();
 		}
 		catch (IllegalArgumentException x)
 		{
@@ -134,64 +134,64 @@ public class StringToolsTest
 	}
 
 	@Test
-	public void replacteTemplate ()
+	public void replacteTemplate()
 	{
 		String s = "aa ${bb}xx cc $bb #{ff}$!$";
-		Properties p = new Properties ();
-		p.setProperty ("bb", "123");
-		p.setProperty ("ff", "456");
+		Properties p = new Properties();
+		p.setProperty("bb", "123");
+		p.setProperty("ff", "456");
 
-		String replacedTemplate = StringTools.replaceTemplate (s, p);
+		String replacedTemplate = StringTools.replaceTemplate(s, p);
 
-		assertThat (replacedTemplate, equalTo ("aa 123xx cc $bb 456$!$"));
+		assertThat(replacedTemplate, equalTo("aa 123xx cc $bb 456$!$"));
 	}
 
 	@Test
-	public void replacteTemplateWithTrimAndExtend ()
+	public void replacteTemplateWithTrimAndExtend()
 	{
 		String s = "aa ${bb:+6}xx cc $bb #{ff:6:...}$!$ ${gg:3:.} ${gg:1:. }";
-		Properties p = new Properties ();
-		p.setProperty ("bb", "123");
-		p.setProperty ("ff", "123456789");
-		p.setProperty ("gg", "1111");
+		Properties p = new Properties();
+		p.setProperty("bb", "123");
+		p.setProperty("ff", "123456789");
+		p.setProperty("gg", "1111");
 
-		String replacedTemplate = StringTools.replaceTemplate (s, p);
+		String replacedTemplate = StringTools.replaceTemplate(s, p);
 
-		assertThat (replacedTemplate, equalTo ("aa 123   xx cc $bb 123...$!$ 11. 1. "));
+		assertThat(replacedTemplate, equalTo("aa 123   xx cc $bb 123...$!$ 11. 1. "));
 	}
 
 	@Test
-	public void replacteTemplateWithKeepUnfoundKeys ()
+	public void replacteTemplateWithKeepUnfoundKeys()
 	{
 		String s = "aa ${bb}xx cc $bb #{ff}$!$";
-		Properties p = new Properties ();
-		p.setProperty ("bb", "123");
+		Properties p = new Properties();
+		p.setProperty("bb", "123");
 
-		String replacedTemplate = StringTools.replaceTemplate (s, p, true);
+		String replacedTemplate = StringTools.replaceTemplate(s, p, true);
 
-		assertThat (replacedTemplate, equalTo ("aa 123xx cc $bb #{ff}$!$"));
+		assertThat(replacedTemplate, equalTo("aa 123xx cc $bb #{ff}$!$"));
 	}
 
 	@Test
-	public void checkRegExForRangeNumbers ()
+	public void checkRegExForRangeNumbers()
 	{
-		assertThat (
-						StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("1245", "4723"),
-						equalTo ("124[5-9]|12[5-9][0-9]|1[3-9][0-9][0-9]|2[0-9]{3}|3[0-9]{3}|472[0-3]|47[0-1][0-9]|4[0-6][0-9][0-9]"));
-		assertThat (StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("9090", "9099"), equalTo ("909[0-9]"));
-		assertThat (StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("90", "99"), equalTo ("9[0-9]"));
-		assertThat (StringTools.getRegexPatternByNumberRangeWithSameNumberLength ("0", "9"), equalTo ("[0-9]"));
+		assertThat(
+						StringTools.getRegexPatternByNumberRangeWithSameNumberLength("1245", "4723"),
+						equalTo("124[5-9]|12[5-9][0-9]|1[3-9][0-9][0-9]|2[0-9]{3}|3[0-9]{3}|472[0-3]|47[0-1][0-9]|4[0-6][0-9][0-9]"));
+		assertThat(StringTools.getRegexPatternByNumberRangeWithSameNumberLength("9090", "9099"), equalTo("909[0-9]"));
+		assertThat(StringTools.getRegexPatternByNumberRangeWithSameNumberLength("90", "99"), equalTo("9[0-9]"));
+		assertThat(StringTools.getRegexPatternByNumberRangeWithSameNumberLength("0", "9"), equalTo("[0-9]"));
 	}
 
 	@Test
-	public void matcherMatches ()
+	public void matcherMatches()
 	{
-		assertThat (StringTools.match (Pattern.compile ("\\w+"), "abc").matches (), is (true));
+		assertThat(StringTools.match(Pattern.compile("\\w+"), "abc").matches(), is(true));
 	}
 
 	@Test
-	public void matcherDoesntMatche ()
+	public void matcherDoesntMatche()
 	{
-		assertThat (StringTools.match (Pattern.compile ("\\w+"), "#!$").matches (), is (false));
+		assertThat(StringTools.match(Pattern.compile("\\w+"), "#!$").matches(), is(false));
 	}
 }

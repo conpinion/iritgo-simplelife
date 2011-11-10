@@ -24,46 +24,46 @@ public class Full<T> extends Option<T>
 {
 	private T elem;
 
-	protected Full ()
+	protected Full()
 	{
 	}
 
-	public Full (T elem)
+	public Full(T elem)
 	{
 		assert (elem != null);
 		this.elem = elem;
 	}
 
 	@Override
-	public boolean empty ()
+	public boolean empty()
 	{
 		return false;
 	}
 
 	@Override
-	public boolean full ()
+	public boolean full()
 	{
 		return true;
 	}
 
 	@Override
-	public T get ()
+	public T get()
 	{
 		return elem;
 	}
 
 	@Override
-	public T getOrElse (T defaultElem)
+	public T getOrElse(T defaultElem)
 	{
 		return elem;
 	}
 
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (obj instanceof Full)
 		{
-			return get ().equals (((Full) obj).get ());
+			return get().equals(((Full) obj).get());
 		}
 		return false;
 	}

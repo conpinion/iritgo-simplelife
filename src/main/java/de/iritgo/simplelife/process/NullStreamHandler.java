@@ -28,13 +28,13 @@ import java.io.InputStream;
  */
 public class NullStreamHandler extends StreamHandler
 {
-	public NullStreamHandler (InputStream is)
+	public NullStreamHandler(InputStream is)
 	{
-		super (is, true);
+		super(is, true);
 	}
 
-	public NullStreamHandler (String name, InputStream is)
+	public NullStreamHandler(String name, InputStream is)
 	{
-		super (name, is, true);
+		super(name, is, true);
 	}
 }

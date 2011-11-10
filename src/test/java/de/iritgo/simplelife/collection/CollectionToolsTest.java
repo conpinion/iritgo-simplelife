@@ -20,34 +20,35 @@
 package de.iritgo.simplelife.collection;
 
 
+import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import org.junit.Test;
 import de.iritgo.simplelife.math.Predicate;
+import de.iritgo.simplelife.tools.Option;
 
 
 public class CollectionToolsTest
 {
 	@Test
-	public void find () throws Exception
+	public void find() throws Exception
 	{
-		ArrayList<Integer> c = new ArrayList ();
-		c.add (1);
-		c.add (3);
-		c.add (4);
-		c.add (5);
+		ArrayList<Integer> c = new ArrayList();
+		c.add(1);
+		c.add(3);
+		c.add(4);
+		c.add(5);
 
-		Integer i = CollectionTools.find (c, new Predicate<Integer> ()
+		Option<Integer> i = CollectionTools.find(c, new Predicate<Integer>()
 		{
-			public Boolean eval (Integer x)
+			public Boolean eval(Integer x)
 			{
 				return x % 2 == 0;
 			}
 		});
 
-		assertThat (i, notNullValue ());
-		assertThat (i, equalTo (4));
+		assertThat(i.full(), is(true));
+		assertThat(i.get(), equalTo(4));
 	}
 }

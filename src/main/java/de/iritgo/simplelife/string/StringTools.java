@@ -43,28 +43,28 @@ public final class StringTools
 	private static String hexCodes = "0123456789ABCDEF";
 
 	/** Regular expression: Strings of digits and letters. */
-	private static Pattern reOnlyCharsAndNumbers = Pattern.compile ("\\w+");
+	private static Pattern reOnlyCharsAndNumbers = Pattern.compile("\\w+");
 
 	/** Regular expression: Template variables ${var}. */
-	private static Pattern reReplaceTemplateVariables = Pattern.compile ("([$#]\\{([.&[^\\{\\}]]*)\\})");
+	private static Pattern reReplaceTemplateVariables = Pattern.compile("([$#]\\{([.&[^\\{\\}]]*)\\})");
 
 	/**
 	 * Regular expression: For Template to trim or extends (with space) the
 	 * length.
 	 */
-	private static Pattern reTrimOrExtendTemplateVariables = Pattern.compile ("^(.+):(\\+?)([0-9]+):?(\\D*)");
+	private static Pattern reTrimOrExtendTemplateVariables = Pattern.compile("^(.+):(\\+?)([0-9]+):?(\\D*)");
 
 	/** Regular expression: For the format function %5:5s. */
-	private static Pattern reStringFormat = Pattern.compile ("((%([0-9]+)):(.??[0-9]+.?))");
+	private static Pattern reStringFormat = Pattern.compile("((%([0-9]+)):(.??[0-9]+.?))");
 
 	/** Regular expression: MAC address */
-	private static Pattern reMACAddress1 = Pattern.compile ("\\w\\w(:\\w\\w){5}");
+	private static Pattern reMACAddress1 = Pattern.compile("\\w\\w(:\\w\\w){5}");
 
 	/** Regular expression: MAC address */
-	private static Pattern reMACAddress2 = Pattern.compile ("\\w\\w(-\\w\\w){5}");
+	private static Pattern reMACAddress2 = Pattern.compile("\\w\\w(-\\w\\w){5}");
 
 	/** Regular expression: MAC address */
-	private static Pattern reMACAddress3 = Pattern.compile ("(\\w\\w){6}");
+	private static Pattern reMACAddress3 = Pattern.compile("(\\w\\w){6}");
 
 	/**
 	 * Check whether 'test' is a substring of 'text'.
@@ -73,9 +73,9 @@ public final class StringTools
 	 * @param test The substring to find.
 	 * @return True if 'test' is part of 'text'.
 	 */
-	public static boolean contains (String text, String test)
+	public static boolean contains(String text, String test)
 	{
-		return text.indexOf (test) != - 1;
+		return text.indexOf(test) != - 1;
 	}
 
 	/**
@@ -83,9 +83,9 @@ public final class StringTools
 	 *
 	 * @return True if the supplied string is empty.
 	 */
-	public static boolean isEmpty (Object text)
+	public static boolean isEmpty(Object text)
 	{
-		return (text == null) || (text.toString ().length () == 0);
+		return (text == null) || (text.toString().length() == 0);
 	}
 
 	/**
@@ -93,9 +93,9 @@ public final class StringTools
 	 *
 	 * @return True if the supplied string is empty.
 	 */
-	public static boolean isTrimEmpty (Object text)
+	public static boolean isTrimEmpty(Object text)
 	{
-		return (text == null) || (text.toString ().trim ().length () == 0);
+		return (text == null) || (text.toString().trim().length() == 0);
 	}
 
 	/**
@@ -103,9 +103,9 @@ public final class StringTools
 	 *
 	 * @return True if the supplied string is not empty.
 	 */
-	public static boolean isNotTrimEmpty (Object text)
+	public static boolean isNotTrimEmpty(Object text)
 	{
-		return ! isTrimEmpty (text);
+		return ! isTrimEmpty(text);
 	}
 
 	/**
@@ -115,14 +115,14 @@ public final class StringTools
 	 * @param defaultValue Return this string if text is null.
 	 * @return The trimmed string.
 	 */
-	public static String trim (Object text, String defaultValue)
+	public static String trim(Object text, String defaultValue)
 	{
 		if (text == null)
 		{
 			return defaultValue;
 		}
 
-		return text.toString ().trim ();
+		return text.toString().trim();
 	}
 
 	/**
@@ -132,9 +132,9 @@ public final class StringTools
 	 * @return The trimmed string. If text is null, the empty string is
 	 *         returned.
 	 */
-	public static String trim (Object text)
+	public static String trim(Object text)
 	{
-		return trim (text, "");
+		return trim(text, "");
 	}
 
 	/**
@@ -143,9 +143,9 @@ public final class StringTools
 	 * @param value The string to convert.
 	 * @return The converted string.
 	 */
-	public static String initialUpperCase (String value)
+	public static String initialUpperCase(String value)
 	{
-		return Character.toUpperCase (value.charAt (0)) + value.substring (1);
+		return Character.toUpperCase(value.charAt(0)) + value.substring(1);
 	}
 
 	/**
@@ -154,9 +154,9 @@ public final class StringTools
 	 * @param value The string to convert.
 	 * @return The converted string.
 	 */
-	public static String initialLowerCase (String value)
+	public static String initialLowerCase(String value)
 	{
-		return Character.toLowerCase (value.charAt (0)) + value.substring (1);
+		return Character.toLowerCase(value.charAt(0)) + value.substring(1);
 	}
 
 	/**
@@ -166,12 +166,12 @@ public final class StringTools
 	 * @param ch The character to count.
 	 * @return The number of occurrences of the character.
 	 */
-	public static int countChar (String text, char ch)
+	public static int countChar(String text, char ch)
 	{
 		int count = 0;
 		int index = - 1;
 
-		while ((index = text.indexOf (ch, index + 1)) != - 1)
+		while ((index = text.indexOf(ch, index + 1)) != - 1)
 		{
 			++count;
 		}
@@ -185,19 +185,19 @@ public final class StringTools
 	 * @param s This is the string to encode.
 	 * @return The encoded string.
 	 */
-	public static String encode (String s)
+	public static String encode(String s)
 	{
-		String strCoded = new String ();
+		String strCoded = new String();
 
-		for (int i = 0; i < s.length (); ++i)
+		for (int i = 0; i < s.length(); ++i)
 		{
-			String codePart = new String ();
+			String codePart = new String();
 			int code = 0;
 			int keypos = 0;
 
 			for (keypos = 0; true; ++keypos)
 			{
-				code = (int) s.charAt (i) ^ (int) codeKey.charAt ((i + keypos) % 256);
+				code = (int) s.charAt(i) ^ (int) codeKey.charAt((i + keypos) % 256);
 
 				if (code != 0)
 				{
@@ -205,8 +205,8 @@ public final class StringTools
 				}
 			}
 
-			codePart += intToHex (keypos, 2);
-			codePart += intToHex (code, 4);
+			codePart += intToHex(keypos, 2);
+			codePart += intToHex(code, 4);
 
 			strCoded += codePart;
 		}
@@ -220,26 +220,26 @@ public final class StringTools
 	 * @param s This is the string to decode.
 	 * @return The decoded string.
 	 */
-	public static String decode (String s)
+	public static String decode(String s)
 	{
 		if (s == null)
 		{
 			return null;
 		}
 
-		String strDecoded = new String ();
+		String strDecoded = new String();
 
-		for (int i = 0; i < s.length (); i += 6)
+		for (int i = 0; i < s.length(); i += 6)
 		{
 			int code;
 			int keypos;
-			String codePartKey = s.substring (i, i + 2);
-			String codePartCode = s.substring (i + 2, i + 6);
+			String codePartKey = s.substring(i, i + 2);
+			String codePartCode = s.substring(i + 2, i + 6);
 
-			keypos = hexToInt (codePartKey);
-			code = hexToInt (codePartCode);
+			keypos = hexToInt(codePartKey);
+			code = hexToInt(codePartCode);
 
-			char addChar = (char) ((int) code ^ (int) codeKey.charAt (((i / 6) + keypos) % 256));
+			char addChar = (char) ((int) code ^ (int) codeKey.charAt(((i / 6) + keypos) % 256));
 
 			strDecoded += addChar;
 		}
@@ -254,9 +254,9 @@ public final class StringTools
 	 * @param numChars The number of chars (nibbles) that should be converted.
 	 * @return The hex string.
 	 */
-	public static String intToHex (int value, int numChars)
+	public static String intToHex(int value, int numChars)
 	{
-		String hex = new String ();
+		String hex = new String();
 
 		long mask = ((1 << ((numChars) * 4)) - 1);
 
@@ -266,7 +266,7 @@ public final class StringTools
 		{
 			int nibbleValue = value >> (i * 4);
 
-			hex += hexCodes.charAt (nibbleValue);
+			hex += hexCodes.charAt(nibbleValue);
 			value &= ((1 << (i * 4)) - 1);
 		}
 
@@ -279,27 +279,27 @@ public final class StringTools
 	 * @param s The hexString to convert.
 	 * @return The integer value.
 	 */
-	public static int hexToInt (String s)
+	public static int hexToInt(String s)
 	{
 		int dez = 0;
 		int value = 0;
 		char code;
 
-		s = s.toUpperCase ();
+		s = s.toUpperCase();
 
-		for (int i = s.length (); i > 0; --i)
+		for (int i = s.length(); i > 0; --i)
 		{
-			code = s.charAt (s.length () - i);
+			code = s.charAt(s.length() - i);
 
-			for (dez = 0; dez < hexCodes.length (); ++dez)
+			for (dez = 0; dez < hexCodes.length(); ++dez)
 			{
-				if (code == hexCodes.charAt (dez))
+				if (code == hexCodes.charAt(dez))
 				{
 					break;
 				}
 			}
 
-			if (dez >= hexCodes.length ())
+			if (dez >= hexCodes.length())
 			{
 				return - 1;
 			}
@@ -317,9 +317,9 @@ public final class StringTools
 	 * @param s The string to convert.
 	 * @return The escaped string.
 	 */
-	public static String escpapePattern (String s)
+	public static String escpapePattern(String s)
 	{
-		return s.replaceAll ("(\\$|\\{|\\})", "\\\\$1");
+		return s.replaceAll("(\\$|\\{|\\})", "\\\\$1");
 	}
 
 	/**
@@ -329,16 +329,16 @@ public final class StringTools
 	 * @param repeat The number of concatenations.
 	 * @return The new string.
 	 */
-	public static String createStringRepeat (String s, int repeat)
+	public static String createStringRepeat(String s, int repeat)
 	{
-		StringBuffer sb = new StringBuffer ();
+		StringBuffer sb = new StringBuffer();
 
 		for (int i = 0; i < repeat; ++i)
 		{
-			sb.append (s);
+			sb.append(s);
 		}
 
-		return sb.toString ();
+		return sb.toString();
 	}
 
 	/**
@@ -347,7 +347,7 @@ public final class StringTools
 	 * @param value Can be a String an Object array or null.
 	 * @return A String array (with length = 0 if the supplied value is null).
 	 */
-	public static String[] toStringArray (Object value)
+	public static String[] toStringArray(Object value)
 	{
 		if (value == null)
 		{
@@ -360,7 +360,7 @@ public final class StringTools
 
 			for (int i = 0; i < v.length; ++i)
 			{
-				res[i] = v[i].toString ();
+				res[i] = v[i].toString();
 			}
 
 			return res;
@@ -369,7 +369,7 @@ public final class StringTools
 		{
 			return new String[]
 			{
-				value.toString ()
+				value.toString()
 			};
 		}
 	}
@@ -380,11 +380,11 @@ public final class StringTools
 	 * @param s The string to check.
 	 * @return True if the string is valid.
 	 */
-	public static boolean isOnlyCharsAndNumbers (String s)
+	public static boolean isOnlyCharsAndNumbers(String s)
 	{
-		Matcher m = reOnlyCharsAndNumbers.matcher (s);
+		Matcher m = reOnlyCharsAndNumbers.matcher(s);
 
-		return m.matches ();
+		return m.matches();
 	}
 
 	/**
@@ -394,9 +394,9 @@ public final class StringTools
 	 * @param s The string to convert.
 	 * @return The converted string.
 	 */
-	public static String toOnlyCharsAndNumbers (String s)
+	public static String toOnlyCharsAndNumbers(String s)
 	{
-		return s.replaceAll ("[^\\w\\d_]", "");
+		return s.replaceAll("[^\\w\\d_]", "");
 	}
 
 	/**
@@ -407,9 +407,9 @@ public final class StringTools
 	 * @param s2 The second string to check. return True if the strings are
 	 *            equal.
 	 */
-	public static boolean equals (String s1, String s2)
+	public static boolean equals(String s1, String s2)
 	{
-		return ((s1 == null) ? "" : s1).equals (((s2 == null) ? "" : s2));
+		return ((s1 == null) ? "" : s1).equals(((s2 == null) ? "" : s2));
 	}
 
 	/**
@@ -419,14 +419,14 @@ public final class StringTools
 	 * @param from The search pattern (regular expression).
 	 * @param to The replacement string.
 	 */
-	public static String replaceAll (String text, String from, String to)
+	public static String replaceAll(String text, String from, String to)
 	{
 		if (text == null)
 		{
 			return text;
 		}
 
-		return text.replaceAll (from, to);
+		return text.replaceAll(from, to);
 	}
 
 	/**
@@ -435,9 +435,9 @@ public final class StringTools
 	 * @param text String to convert.
 	 * @return The converted string.
 	 */
-	public static String replaceTemplate (String text, Map map)
+	public static String replaceTemplate(String text, Map map)
 	{
-		return replaceTemplate (text, map, false);
+		return replaceTemplate(text, map, false);
 	}
 
 	/**
@@ -449,109 +449,109 @@ public final class StringTools
 	 * @param keepUnfoundKeys If true the template key will not be deleted
 	 * @return The converted string.
 	 */
-	public static String replaceTemplate (String text, Map map, boolean keepUnfoundKeys)
+	public static String replaceTemplate(String text, Map map, boolean keepUnfoundKeys)
 	{
-		StringBuffer buffer = new StringBuffer ();
-		Matcher m = reReplaceTemplateVariables.matcher (text);
+		StringBuffer buffer = new StringBuffer();
+		Matcher m = reReplaceTemplateVariables.matcher(text);
 		int pos = 0;
 
-		while (m.find (pos))
+		while (m.find(pos))
 		{
-			buffer.append (text.substring (pos, m.start ()));
+			buffer.append(text.substring(pos, m.start()));
 
-			String propertyName = m.group (2) != null ? m.group (2) : m.group (3);
+			String propertyName = m.group(2) != null ? m.group(2) : m.group(3);
 			String value = null;
 
-			Matcher m2 = reTrimOrExtendTemplateVariables.matcher (propertyName);
+			Matcher m2 = reTrimOrExtendTemplateVariables.matcher(propertyName);
 			int trimOrExtend = - 1;
 
-			if (m2.matches ())
+			if (m2.matches())
 			{
-				propertyName = m2.group (1);
-				trimOrExtend = Integer.parseInt (m2.group (3));
+				propertyName = m2.group(1);
+				trimOrExtend = Integer.parseInt(m2.group(3));
 			}
 
-			if (map.get (propertyName) != null || ! keepUnfoundKeys)
+			if (map.get(propertyName) != null || ! keepUnfoundKeys)
 			{
 				if (trimOrExtend > 0)
 				{
-					value = trim (map.get (propertyName));
+					value = trim(map.get(propertyName));
 
-					if (! isTrimEmpty (m2.group (2)) && value.length () < trimOrExtend)
+					if (! isTrimEmpty(m2.group(2)) && value.length() < trimOrExtend)
 					{
-						if (isTrimEmpty (value))
+						if (isTrimEmpty(value))
 						{
-							value = createStringRepeat (" ", trimOrExtend);
+							value = createStringRepeat(" ", trimOrExtend);
 						}
 						else
 						{
-							value = value.concat (createStringRepeat (" ", trimOrExtend - value.length ()));
+							value = value.concat(createStringRepeat(" ", trimOrExtend - value.length()));
 						}
 					}
 					else
 					{
-						String cutString = m2.group (4);
+						String cutString = m2.group(4);
 
-						if (! isTrimEmpty (cutString))
+						if (! isTrimEmpty(cutString))
 						{
-							if (cutString.length () < trimOrExtend)
+							if (cutString.length() < trimOrExtend)
 							{
-								value = value.substring (0, Math.min (Math.max (trimOrExtend - cutString.length (), 0),
-												value.length ()))
+								value = value.substring(0, Math.min(Math.max(trimOrExtend - cutString.length(), 0),
+												value.length()))
 												+ cutString;
 							}
-							else if (trimOrExtend < value.length ())
+							else if (trimOrExtend < value.length())
 							{
-								value = value.substring (0, Math.min (Math.max (trimOrExtend, 0), value.length ()))
+								value = value.substring(0, Math.min(Math.max(trimOrExtend, 0), value.length()))
 												+ cutString;
 							}
 							else
 							{
-								if (StringTools.isTrimEmpty (value))
+								if (StringTools.isTrimEmpty(value))
 								{
 									value = cutString;
 								}
 								else
 								{
-									value = value.substring (0, 1) + cutString;
+									value = value.substring(0, 1) + cutString;
 								}
 							}
 						}
 						else
 						{
-							if (StringTools.isTrimEmpty (value))
+							if (StringTools.isTrimEmpty(value))
 							{
 								value = "";
 							}
 							else
 							{
-								value = value.substring (0, Math.min (Math.max (trimOrExtend, 0), value.length ()));
+								value = value.substring(0, Math.min(Math.max(trimOrExtend, 0), value.length()));
 							}
 						}
 					}
 
-					if (isTrimEmpty (map.get (propertyName)))
+					if (isTrimEmpty(map.get(propertyName)))
 					{
 						value = "";
 					}
 				}
 				else
 				{
-					value = trim (map.get (propertyName));
+					value = trim(map.get(propertyName));
 				}
 			}
 			else
 			{
-				value = m.group (1);
+				value = m.group(1);
 			}
 
-			buffer.append (value);
-			pos = m.end ();
+			buffer.append(value);
+			pos = m.end();
 		}
 
-		buffer.append (text.substring (pos, text.length ()));
+		buffer.append(text.substring(pos, text.length()));
 
-		return buffer.toString ();
+		return buffer.toString();
 	}
 
 	/**
@@ -565,79 +565,79 @@ public final class StringTools
 	 * @param params The object param list
 	 * @return The converted string
 	 */
-	public static String replaceTemplate (String text, Pattern reReplaceTemplateVariables,
+	public static String replaceTemplate(String text, Pattern reReplaceTemplateVariables,
 					Pattern reTrimOrExtendTemplateVariables, boolean keepUnfoundKeys, Object... params)
 	{
-		StringBuffer buffer = new StringBuffer ();
-		Matcher m = reReplaceTemplateVariables.matcher (text);
+		StringBuffer buffer = new StringBuffer();
+		Matcher m = reReplaceTemplateVariables.matcher(text);
 		int pos = 0;
 
-		while (m.find (pos))
+		while (m.find(pos))
 		{
-			buffer.append (text.substring (pos, m.start ()));
+			buffer.append(text.substring(pos, m.start()));
 
-			String propertyName = m.group (2) != null ? m.group (2) : m.group (3);
+			String propertyName = m.group(2) != null ? m.group(2) : m.group(3);
 			String value = null;
 
-			Matcher m2 = reTrimOrExtendTemplateVariables.matcher (propertyName);
+			Matcher m2 = reTrimOrExtendTemplateVariables.matcher(propertyName);
 			int trimOrExtend = - 1;
 
-			if (m2.matches ())
+			if (m2.matches())
 			{
-				propertyName = m2.group (1);
-				trimOrExtend = Integer.parseInt (m2.group (3));
+				propertyName = m2.group(1);
+				trimOrExtend = Integer.parseInt(m2.group(3));
 			}
 
-			int propIndex = Integer.parseInt (propertyName);
+			int propIndex = Integer.parseInt(propertyName);
 
 			String paramValue = "";
 
 			if (propIndex < params.length)
 			{
-				paramValue = params[propIndex].toString ();
+				paramValue = params[propIndex].toString();
 			}
 
 			if (propIndex > params.length || ! keepUnfoundKeys)
 			{
 				if (trimOrExtend > 0)
 				{
-					value = trim (paramValue);
+					value = trim(paramValue);
 
-					if (! isTrimEmpty (m2.group (2)) && value.length () < trimOrExtend)
+					if (! isTrimEmpty(m2.group(2)) && value.length() < trimOrExtend)
 					{
-						value = value.concat (createStringRepeat (" ", trimOrExtend - value.length ()));
+						value = value.concat(createStringRepeat(" ", trimOrExtend - value.length()));
 					}
 					else
 					{
-						String cutString = m2.group (4);
+						String cutString = m2.group(4);
 
-						if (! isTrimEmpty (cutString) && value.length () > cutString.length ())
+						if (! isTrimEmpty(cutString) && value.length() > cutString.length())
 						{
-							value = value.substring (0, trimOrExtend - cutString.length ()) + cutString;
+							value = value.substring(0, trimOrExtend - cutString.length()) + cutString;
 						}
 						else
 						{
-							value = value.substring (0, trimOrExtend);
+							value = value.substring(0, trimOrExtend);
 						}
 					}
 				}
 				else
 				{
-					value = trim (paramValue);
+					value = trim(paramValue);
 				}
 			}
 			else
 			{
-				value = m.group (1);
+				value = m.group(1);
 			}
 
-			buffer.append (value);
-			pos = m.end ();
+			buffer.append(value);
+			pos = m.end();
 		}
 
-		buffer.append (text.substring (pos, text.length ()));
+		buffer.append(text.substring(pos, text.length()));
 
-		return buffer.toString ();
+		return buffer.toString();
 	}
 
 	/**
@@ -655,13 +655,13 @@ public final class StringTools
 	 * @param s The text to append.
 	 * @param delim The delimiter to append.
 	 */
-	public static void appendWithDelimiter (Appendable buf, int len, String s, String delim)
+	public static void appendWithDelimiter(Appendable buf, int len, String s, String delim)
 	{
-		appendIf ((len > 0) && ! isTrimEmpty (s), buf, delim);
+		appendIf((len > 0) && ! isTrimEmpty(s), buf, delim);
 
 		try
 		{
-			buf.append (s);
+			buf.append(s);
 		}
 		catch (IOException e)
 		{
@@ -673,9 +673,9 @@ public final class StringTools
 	 *
 	 *      Convenience method that takes a StringBuffer.
 	 */
-	public static void appendWithDelimiter (StringBuffer buf, String s, String delim)
+	public static void appendWithDelimiter(StringBuffer buf, String s, String delim)
 	{
-		appendWithDelimiter (buf, buf.length (), s, delim);
+		appendWithDelimiter(buf, buf.length(), s, delim);
 	}
 
 	/**
@@ -683,9 +683,9 @@ public final class StringTools
 	 *
 	 *      Convenience method that takes a StringBuilder.
 	 */
-	public static void appendWithDelimiter (StringBuilder buf, String s, String delim)
+	public static void appendWithDelimiter(StringBuilder buf, String s, String delim)
 	{
-		appendWithDelimiter (buf, buf.length (), s, delim);
+		appendWithDelimiter(buf, buf.length(), s, delim);
 	}
 
 	/**
@@ -695,11 +695,11 @@ public final class StringTools
 	 * @param strings The strings to concatenate
 	 * @param delim The delimiter
 	 */
-	public static void appendWithDelimiter (StringBuilder buf, String[] strings, String delim)
+	public static void appendWithDelimiter(StringBuilder buf, String[] strings, String delim)
 	{
 		for (String string : strings)
 		{
-			appendWithDelimiter (buf, string, delim);
+			appendWithDelimiter(buf, string, delim);
 		}
 	}
 
@@ -710,13 +710,13 @@ public final class StringTools
 	 * @param buf The appendable.
 	 * @param s The string to add.
 	 */
-	public static void appendIf (boolean p, Appendable buf, String s)
+	public static void appendIf(boolean p, Appendable buf, String s)
 	{
 		if (p)
 		{
 			try
 			{
-				buf.append (s);
+				buf.append(s);
 			}
 			catch (IOException e)
 			{
@@ -734,16 +734,16 @@ public final class StringTools
 	 * @param converter The string converter to use.
 	 * @return The concatenated string.
 	 */
-	public static String concatWithDelimiter (Collection<?> values, String delim, StringConverter converter)
+	public static String concatWithDelimiter(Collection<?> values, String delim, StringConverter converter)
 	{
-		StringBuilder buf = new StringBuilder ();
+		StringBuilder buf = new StringBuilder();
 
 		for (Object value : values)
 		{
-			appendWithDelimiter (buf, converter.toString (value), delim);
+			appendWithDelimiter(buf, converter.toString(value), delim);
 		}
 
-		return buf.toString ();
+		return buf.toString();
 	}
 
 	/**
@@ -755,9 +755,9 @@ public final class StringTools
 	 * @param delim The delimiter.
 	 * @return The concatenated string.
 	 */
-	public static String concatWithDelimiter (Collection<?> values, String delim)
+	public static String concatWithDelimiter(Collection<?> values, String delim)
 	{
-		return concatWithDelimiter (values, delim, new SimpleStringConverter ());
+		return concatWithDelimiter(values, delim, new SimpleStringConverter());
 	}
 
 	/**
@@ -767,36 +767,36 @@ public final class StringTools
 	 * @param macAddress The MAC address to normalize
 	 * @return The normalized MAC address
 	 */
-	public static String normalizeMACAddress (String macAddress)
+	public static String normalizeMACAddress(String macAddress)
 	{
-		if (isTrimEmpty (macAddress))
+		if (isTrimEmpty(macAddress))
 		{
-			throw new IllegalArgumentException ("Unknwon MAC address format");
+			throw new IllegalArgumentException("Unknwon MAC address format");
 		}
 
-		if (reMACAddress1.matcher (macAddress).matches ())
+		if (reMACAddress1.matcher(macAddress).matches())
 		{
-			return macAddress.toUpperCase ();
+			return macAddress.toUpperCase();
 		}
 
-		if (reMACAddress2.matcher (macAddress).matches ())
+		if (reMACAddress2.matcher(macAddress).matches())
 		{
-			return macAddress.replace ('-', ':').toUpperCase ();
+			return macAddress.replace('-', ':').toUpperCase();
 		}
 
-		if (reMACAddress3.matcher (macAddress).matches ())
+		if (reMACAddress3.matcher(macAddress).matches())
 		{
-			StringBuilder newMACAddress = new StringBuilder ();
+			StringBuilder newMACAddress = new StringBuilder();
 
-			for (int i = 0; (i + 1) < macAddress.length (); i += 2)
+			for (int i = 0; (i + 1) < macAddress.length(); i += 2)
 			{
-				appendWithDelimiter (newMACAddress, macAddress.substring (i, i + 2), ":");
+				appendWithDelimiter(newMACAddress, macAddress.substring(i, i + 2), ":");
 			}
 
-			return newMACAddress.toString ().toUpperCase ();
+			return newMACAddress.toString().toUpperCase();
 		}
 
-		throw new IllegalArgumentException ("Unknwon MAC address format");
+		throw new IllegalArgumentException("Unknwon MAC address format");
 	}
 
 	/**
@@ -805,14 +805,14 @@ public final class StringTools
 	 * @param t The throwable
 	 * @return The stack strace string
 	 */
-	public static String stackTraceToString (Throwable t)
+	public static String stackTraceToString(Throwable t)
 	{
-		StringWriter stw = new StringWriter ();
-		PrintWriter pw = new PrintWriter (stw);
+		StringWriter stw = new StringWriter();
+		PrintWriter pw = new PrintWriter(stw);
 
-		t.printStackTrace (pw);
+		t.printStackTrace(pw);
 
-		return stw.getBuffer ().toString ();
+		return stw.getBuffer().toString();
 	}
 
 	/**
@@ -822,7 +822,7 @@ public final class StringTools
 	 * @return The digest, i.e. hex(sha1(value)). If the supplied value is null,
 	 *         null is returned
 	 */
-	public static final String digest (String value)
+	public static final String digest(String value)
 	{
 		if (value == null)
 		{
@@ -833,9 +833,9 @@ public final class StringTools
 
 		try
 		{
-			MessageDigest messageDigest = MessageDigest.getInstance ("SHA1");
+			MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
 
-			digest = bytesToHex (messageDigest.digest (value.getBytes ()));
+			digest = bytesToHex(messageDigest.digest(value.getBytes()));
 		}
 		catch (Exception e)
 		{
@@ -851,14 +851,14 @@ public final class StringTools
 	 * @return The digest, i.e. hex(sha1(value)). If the supplied value is null,
 	 *         null is returned
 	 */
-	public static final String digest (Object value)
+	public static final String digest(Object value)
 	{
 		if (value == null)
 		{
 			return null;
 		}
 
-		return digest (trim (value));
+		return digest(trim(value));
 	}
 
 	/**
@@ -868,17 +868,17 @@ public final class StringTools
 	 * @param data The data bytes
 	 * @return The hex string
 	 */
-	public static String bytesToHex (byte[] data)
+	public static String bytesToHex(byte[] data)
 	{
-		StringBuffer retval = new StringBuffer ();
+		StringBuffer retval = new StringBuffer();
 
 		for (int i = 0; i < data.length; i++)
 		{
-			retval.append (hexCodes.charAt ((data[i] >> 4) & 0x0F));
-			retval.append (hexCodes.charAt (data[i] & 0x0F));
+			retval.append(hexCodes.charAt((data[i] >> 4) & 0x0F));
+			retval.append(hexCodes.charAt(data[i] & 0x0F));
 		}
 
-		return retval.toString ();
+		return retval.toString();
 	}
 
 	/**
@@ -889,9 +889,9 @@ public final class StringTools
 	 * @param objects The objects
 	 * @return The formated string
 	 */
-	public static String format (String text, String[] objects)
+	public static String format(String text, String[] objects)
 	{
-		return format (text, objects, true);
+		return format(text, objects, true);
 	}
 
 	/**
@@ -903,25 +903,25 @@ public final class StringTools
 	 * @param leftCut Is false the string will cutted from right
 	 * @return The formated string
 	 */
-	public static String format (String text, String[] objects, boolean leftCut)
+	public static String format(String text, String[] objects, boolean leftCut)
 	{
-		StringBuffer buffer = new StringBuffer ();
-		Matcher m = reStringFormat.matcher (text);
+		StringBuffer buffer = new StringBuffer();
+		Matcher m = reStringFormat.matcher(text);
 		int pos = 0;
 		int objectPos = 0;
 
-		while (m.find (pos))
+		while (m.find(pos))
 		{
-			buffer.append (text.substring (pos, m.start ()));
+			buffer.append(text.substring(pos, m.start()));
 
-			int cut = NumberTools.toInt (m.group (3), 0);
+			int cut = NumberTools.toInt(m.group(3), 0);
 
-			buffer.append ("%" + m.group (4));
+			buffer.append("%" + m.group(4));
 
 			if (leftCut)
 			{
-				objects[objectPos] = objects[objectPos].substring (0, objects[objectPos].length () > cut ? cut
-								: objects[objectPos].length ());
+				objects[objectPos] = objects[objectPos].substring(0, objects[objectPos].length() > cut ? cut
+								: objects[objectPos].length());
 			}
 			else
 			{
@@ -930,19 +930,19 @@ public final class StringTools
 					break;
 				}
 
-				int cutting = objects[objectPos].length () - cut;
+				int cutting = objects[objectPos].length() - cut;
 
 				if (cutting > 0)
 				{
-					objects[objectPos] = objects[objectPos].substring (cutting, objects[objectPos].length ());
+					objects[objectPos] = objects[objectPos].substring(cutting, objects[objectPos].length());
 				}
 			}
 
-			pos = m.end ();
+			pos = m.end();
 			++objectPos;
 		}
 
-		return String.format (buffer.toString (), (Object[]) objects);
+		return String.format(buffer.toString(), (Object[]) objects);
 	}
 
 	/**
@@ -951,9 +951,9 @@ public final class StringTools
 	 * @param value The object
 	 * @return The lower case string
 	 */
-	public static String toLowerCase (Object value)
+	public static String toLowerCase(Object value)
 	{
-		return trim (value).toLowerCase ();
+		return trim(value).toLowerCase();
 	}
 
 	/**
@@ -965,14 +965,14 @@ public final class StringTools
 	 * @param pos The starting position
 	 * @return The substring
 	 */
-	public static String substring (String s, int pos)
+	public static String substring(String s, int pos)
 	{
-		if (pos >= 0 && pos <= s.length ())
+		if (pos >= 0 && pos <= s.length())
 		{
-			return s.substring (pos);
+			return s.substring(pos);
 		}
 
-		if (pos > s.length ())
+		if (pos > s.length())
 		{
 			return "";
 		}
@@ -986,9 +986,9 @@ public final class StringTools
 	 * @param s The string
 	 * @return The number string
 	 */
-	public static String getOnlyNumbers (String s)
+	public static String getOnlyNumbers(String s)
 	{
-		return s.replaceAll ("[^\\d]", "");
+		return s.replaceAll("[^\\d]", "");
 	}
 
 	/**
@@ -999,21 +999,21 @@ public final class StringTools
 	 * @param s2 the second string
 	 * @return The common prefix from the strings
 	 */
-	public static String getCommonPrefix (String s1, String s2)
+	public static String getCommonPrefix(String s1, String s2)
 	{
 		int i = 0;
 
-		while (! s2.startsWith (s1.substring (0, s1.length () - i)))
+		while (! s2.startsWith(s1.substring(0, s1.length() - i)))
 		{
 			++i;
 
-			if (i > s1.length ())
+			if (i > s1.length())
 			{
 				return "";
 			}
 		}
 
-		return s1.substring (0, s1.length () - i);
+		return s1.substring(0, s1.length() - i);
 	}
 
 	/**
@@ -1027,21 +1027,21 @@ public final class StringTools
 	 * @param stop The stop range
 	 * @return The pattern for the range of numbers
 	 */
-	public static String getRegexPatternByNumberRangeWithSameNumberLength (String start, String stop)
+	public static String getRegexPatternByNumberRangeWithSameNumberLength(String start, String stop)
 	{
-		String prefix = getCommonPrefix (start, stop);
-		StringBuilder pattern = new StringBuilder ();
+		String prefix = getCommonPrefix(start, stop);
+		StringBuilder pattern = new StringBuilder();
 
-		start = start.substring (prefix.length (), start.length ());
-		stop = stop.substring (prefix.length (), stop.length ());
+		start = start.substring(prefix.length(), start.length());
+		stop = stop.substring(prefix.length(), stop.length());
 
-		if (start.length () > 1)
+		if (start.length() > 1)
 		{
-			genMin (start, pattern, 0, prefix);
-			genMid (start, stop, pattern, prefix);
-			genHigh (stop, pattern, 0, prefix);
+			genMin(start, pattern, 0, prefix);
+			genMid(start, stop, pattern, prefix);
+			genHigh(stop, pattern, 0, prefix);
 
-			return pattern.toString ().substring (0, pattern.toString ().length () - 1);
+			return pattern.toString().substring(0, pattern.toString().length() - 1);
 		}
 		else
 		{
@@ -1049,87 +1049,87 @@ public final class StringTools
 		}
 	}
 
-	public static void genMin (String number, StringBuilder pattern, int counter, String prefix)
+	public static void genMin(String number, StringBuilder pattern, int counter, String prefix)
 	{
-		if (number.length () == 1)
+		if (number.length() == 1)
 		{
 			return;
 		}
 
-		String high = number.substring (0, number.length () - 1);
-		String current = number.substring (number.length () - 1, number.length ());
+		String high = number.substring(0, number.length() - 1);
+		String current = number.substring(number.length() - 1, number.length());
 
-		if (Integer.parseInt (current) + 1 > 9)
+		if (Integer.parseInt(current) + 1 > 9)
 		{
-			pattern.append (prefix + high + "[0-9]");
+			pattern.append(prefix + high + "[0-9]");
 		}
 		else if (counter == 0)
 		{
-			pattern.append (prefix + high + "[" + (Integer.parseInt (current)) + "-9]");
+			pattern.append(prefix + high + "[" + (Integer.parseInt(current)) + "-9]");
 		}
 		else
 		{
-			pattern.append (prefix + high + "[" + (Integer.parseInt (current) + 1) + "-9]");
+			pattern.append(prefix + high + "[" + (Integer.parseInt(current) + 1) + "-9]");
 		}
 
 		for (int i = 0; i < counter; ++i)
 		{
-			pattern.append ("[0-9]");
+			pattern.append("[0-9]");
 		}
 
-		pattern.append ("|");
+		pattern.append("|");
 		++counter;
-		genMin (high, pattern, counter, prefix);
+		genMin(high, pattern, counter, prefix);
 	}
 
-	public static void genMid (String start, String stop, StringBuilder pattern, String prefix)
+	public static void genMid(String start, String stop, StringBuilder pattern, String prefix)
 	{
-		int startNext = Integer.valueOf (start.substring (0, 1)) + 1;
-		int stopPrev = Integer.valueOf (stop.substring (0, 1)) - 1;
+		int startNext = Integer.valueOf(start.substring(0, 1)) + 1;
+		int stopPrev = Integer.valueOf(stop.substring(0, 1)) - 1;
 
 		for (int i = startNext; i <= stopPrev; ++i)
 		{
-			pattern.append (prefix + i + "[0-9]{" + (start.length () - 1) + "}|");
+			pattern.append(prefix + i + "[0-9]{" + (start.length() - 1) + "}|");
 		}
 	}
 
-	public static void genHigh (String number, StringBuilder pattern, int counter, String prefix)
+	public static void genHigh(String number, StringBuilder pattern, int counter, String prefix)
 	{
-		if (number.length () == 1)
+		if (number.length() == 1)
 		{
 			return;
 		}
 
-		String high = number.substring (0, number.length () - 1);
-		String current = number.substring (number.length () - 1, number.length ());
+		String high = number.substring(0, number.length() - 1);
+		String current = number.substring(number.length() - 1, number.length());
 
-		if (Integer.parseInt (current) - 1 < 1)
+		if (Integer.parseInt(current) - 1 < 1)
 		{
-			pattern.append (prefix + high + "0");
+			pattern.append(prefix + high + "0");
 		}
 		else if (counter == 0)
 		{
-			pattern.append (prefix + high + "[0-" + (Integer.parseInt (current)) + "]");
+			pattern.append(prefix + high + "[0-" + (Integer.parseInt(current)) + "]");
 		}
 		else
 		{
-			pattern.append (prefix + high + "[0-" + (Integer.parseInt (current) - 1) + "]");
+			pattern.append(prefix + high + "[0-" + (Integer.parseInt(current) - 1) + "]");
 		}
 
 		for (int i = 0; i < counter; ++i)
 		{
-			pattern.append ("[0-9]");
+			pattern.append("[0-9]");
 		}
 
-		pattern.append ("|");
+		pattern.append("|");
 		++counter;
-		genHigh (high, pattern, counter, prefix);
+		genHigh(high, pattern, counter, prefix);
 	}
 
-	public static Matcher match (Pattern pattern, String s)
+	public static Matcher match(Pattern pattern, String s)
 	{
-		Matcher matcher = pattern.matcher (s);
-		matcher.matches ();
+		Matcher matcher = pattern.matcher(s);
+		matcher.matches();
 		return matcher;
 	}
 }

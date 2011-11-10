@@ -45,10 +45,10 @@ public class NonblockingStream extends Thread
 	 * 
 	 * @param in The blocking input stream
 	 */
-	public NonblockingStream (InputStream in)
+	public NonblockingStream(InputStream in)
 	{
-		this.in = new BufferedReader (new InputStreamReader (in));
-		this.buffer = new StringBuilder ();
+		this.in = new BufferedReader(new InputStreamReader(in));
+		this.buffer = new StringBuilder();
 		this.running = true;
 	}
 
@@ -56,18 +56,18 @@ public class NonblockingStream extends Thread
 	 * Continuously read from the input stream and append to the buffer.
 	 */
 	@Override
-	public void run ()
+	public void run()
 	{
 		try
 		{
 			int c = - 1;
 
-			while (running && (c = in.read ()) != - 1)
+			while (running && (c = in.read()) != - 1)
 			{
-				appendToBuffer ((char) c);
+				appendToBuffer((char) c);
 			}
 
-			in.close ();
+			in.close();
 		}
 		catch (IOException ignored)
 		{
@@ -77,10 +77,10 @@ public class NonblockingStream extends Thread
 	/**
 	 * Terminate the reader thread.
 	 */
-	public synchronized void terminate ()
+	public synchronized void terminate()
 	{
 		running = false;
-		interrupt ();
+		interrupt();
 	}
 
 	/**
@@ -88,9 +88,9 @@ public class NonblockingStream extends Thread
 	 * 
 	 * @param c The character to append
 	 */
-	private synchronized void appendToBuffer (char c)
+	private synchronized void appendToBuffer(char c)
 	{
-		buffer.append (c);
+		buffer.append(c);
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class NonblockingStream extends Thread
 	 * 
 	 * @return The buffer contents as a string
 	 */
-	public synchronized String getDataAsString ()
+	public synchronized String getDataAsString()
 	{
-		return buffer.toString ();
+		return buffer.toString();
 	}
 }

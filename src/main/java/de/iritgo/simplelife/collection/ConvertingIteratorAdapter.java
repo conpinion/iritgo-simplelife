@@ -45,7 +45,7 @@ public class ConvertingIteratorAdapter<RealType, ConvertedType> implements Itera
 	 * @param iterator The iterator to decorate
 	 * @param converter The data converter
 	 */
-	public ConvertingIteratorAdapter (Iterator<RealType> iterator, DataConverter<RealType, ConvertedType> converter)
+	public ConvertingIteratorAdapter(Iterator<RealType> iterator, DataConverter<RealType, ConvertedType> converter)
 	{
 		this.iterator = iterator;
 		this.converter = converter;
@@ -54,24 +54,24 @@ public class ConvertingIteratorAdapter<RealType, ConvertedType> implements Itera
 	/**
 	 * @see java.util.Iterator#hasNext()
 	 */
-	public boolean hasNext ()
+	public boolean hasNext()
 	{
-		return iterator.hasNext ();
+		return iterator.hasNext();
 	}
 
 	/**
 	 * @see java.util.Iterator#next()
 	 */
-	public ConvertedType next ()
+	public ConvertedType next()
 	{
-		return converter.convertFromType1 (iterator.next ());
+		return converter.convertFromType1(iterator.next());
 	}
 
 	/**
 	 * @see java.util.Iterator#remove()
 	 */
-	public void remove ()
+	public void remove()
 	{
-		iterator.remove ();
+		iterator.remove();
 	}
 }

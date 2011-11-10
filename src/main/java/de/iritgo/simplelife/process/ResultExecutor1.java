@@ -31,5 +31,5 @@ public interface ResultExecutor1<Result, T1>
 	 * @param t1 Parameter 1
 	 * @return The executor result
 	 */
-	public Result execute (T1 t1);
+	public Result execute(T1 t1);
 }

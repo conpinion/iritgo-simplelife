@@ -24,22 +24,22 @@ public class EmptyOptionException extends Error
 {
 	private static final long serialVersionUID = 1L;
 
-	public EmptyOptionException ()
+	public EmptyOptionException()
 	{
 	}
 
-	public EmptyOptionException (String message)
+	public EmptyOptionException(String message)
 	{
-		super (message);
+		super(message);
 	}
 
-	public EmptyOptionException (Throwable cause)
+	public EmptyOptionException(Throwable cause)
 	{
-		super (cause);
+		super(cause);
 	}
 
-	public EmptyOptionException (String message, Throwable cause)
+	public EmptyOptionException(String message, Throwable cause)
 	{
-		super (message, cause);
+		super(message, cause);
 	}
 }

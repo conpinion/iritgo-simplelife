@@ -30,5 +30,5 @@ public interface Procedure1<ARG_1>
 	 * 
 	 * @param a1 Parameter 1
 	 */
-	public void execute (ARG_1 a1);
+	public void execute(ARG_1 a1);
 }

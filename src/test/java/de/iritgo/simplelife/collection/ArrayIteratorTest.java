@@ -30,40 +30,40 @@ import org.junit.Test;
 public class ArrayIteratorTest
 {
 	@Test
-	public void nullArray () throws Exception
+	public void nullArray() throws Exception
 	{
 		String[] array = null;
 
-		Iterator<String> i = new ArrayIterator<String> (array);
+		Iterator<String> i = new ArrayIterator<String>(array);
 
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void emptyArray () throws Exception
+	public void emptyArray() throws Exception
 	{
 		String[] array = new String[]
 		{};
 
-		Iterator<String> i = new ArrayIterator<String> (array);
+		Iterator<String> i = new ArrayIterator<String>(array);
 
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void iteration () throws Exception
+	public void iteration() throws Exception
 	{
 		String[] array = new String[]
 		{
 						"a", "b"
 		};
 
-		Iterator<String> i = new ArrayIterator<String> (array);
+		Iterator<String> i = new ArrayIterator<String>(array);
 
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo ("a"));
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo ("b"));
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo("a"));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo("b"));
+		assertThat(i.hasNext(), is(false));
 	}
 }

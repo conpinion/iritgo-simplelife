@@ -30,44 +30,44 @@ import org.junit.Test;
 public class IntRangeTest
 {
 	@Test
-	public void seq1to1 () throws Exception
+	public void seq1to1() throws Exception
 	{
-		IntRange s = new IntRange (1, 1);
+		IntRange s = new IntRange(1, 1);
 
-		Iterator<Integer> i = s.iterator ();
+		Iterator<Integer> i = s.iterator();
 
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (1));
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(1));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void seq1to3 () throws Exception
+	public void seq1to3() throws Exception
 	{
-		IntRange s = new IntRange (1, 3);
+		IntRange s = new IntRange(1, 3);
 
-		Iterator<Integer> i = s.iterator ();
+		Iterator<Integer> i = s.iterator();
 
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (1));
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (2));
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (3));
-		assertThat (i.hasNext (), is (false));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(1));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(2));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(3));
+		assertThat(i.hasNext(), is(false));
 	}
 
 	@Test
-	public void seq1ToInfinite ()
+	public void seq1ToInfinite()
 	{
-		IntRange s = new IntRange (1);
+		IntRange s = new IntRange(1);
 
-		Iterator<Integer> i = s.iterator ();
+		Iterator<Integer> i = s.iterator();
 
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (1));
-		assertThat (i.hasNext (), is (true));
-		assertThat (i.next (), equalTo (2));
-		assertThat (i.hasNext (), is (true));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(1));
+		assertThat(i.hasNext(), is(true));
+		assertThat(i.next(), equalTo(2));
+		assertThat(i.hasNext(), is(true));
 	}
 }

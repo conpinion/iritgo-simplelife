@@ -30,13 +30,13 @@ import de.iritgo.simplelife.data.DataConverter;
  */
 public class PairObjectArrayConverter<Type1, Type2> implements DataConverter<Pair<Type1, Type2>, Object[]>
 {
-	public Object[] convertFromType1 (Pair<Type1, Type2> o)
+	public Object[] convertFromType1(Pair<Type1, Type2> o)
 	{
 		if (o != null)
 		{
 			return new Object[]
 			{
-							o.get1 (), o.get2 ()
+							o.get1(), o.get2()
 			};
 		}
 		else
@@ -45,11 +45,11 @@ public class PairObjectArrayConverter<Type1, Type2> implements DataConverter<Pai
 		}
 	}
 
-	public Pair<Type1, Type2> convertFromType2 (Object[] o)
+	public Pair<Type1, Type2> convertFromType2(Object[] o)
 	{
 		if (o != null)
 		{
-			return new Pair<Type1, Type2> ((Type1) o[0], (Type2) o[1]);
+			return new Pair<Type1, Type2>((Type1) o[0], (Type2) o[1]);
 		}
 		else
 		{
