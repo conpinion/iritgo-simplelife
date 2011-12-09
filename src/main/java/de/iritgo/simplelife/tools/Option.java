@@ -44,6 +44,11 @@ public abstract class Option<T>
 		return new Full(t);
 	}
 
+	public static <T> Option<T> Optional(T t)
+	{
+		return t != null ? new Full (t) : Empty;
+	}
+
 	public abstract boolean empty();
 
 	public boolean isEmpty()
