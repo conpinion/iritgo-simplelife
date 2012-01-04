@@ -58,13 +58,13 @@ public final class StringTools
 	private static Pattern reStringFormat = Pattern.compile("((%([0-9]+)):(.??[0-9]+.?))");
 
 	/** Regular expression: MAC address */
-	private static Pattern reMACAddress1 = Pattern.compile("\\w\\w(:\\w\\w){5}");
+	private static Pattern reMACAddress1 = Pattern.compile("\\p{XDigit}\\p{XDigit}(:\\p{XDigit}\\p{XDigit}){5}");
 
 	/** Regular expression: MAC address */
-	private static Pattern reMACAddress2 = Pattern.compile("\\w\\w(-\\w\\w){5}");
+	private static Pattern reMACAddress2 = Pattern.compile("\\p{XDigit}\\p{XDigit}(-\\p{XDigit}\\p{XDigit}){5}");
 
 	/** Regular expression: MAC address */
-	private static Pattern reMACAddress3 = Pattern.compile("(\\w\\w){6}");
+	private static Pattern reMACAddress3 = Pattern.compile("(\\p{XDigit}\\p{XDigit}){6}");
 
 	/**
 	 * Check whether 'test' is a substring of 'text'.
