@@ -25,7 +25,6 @@ import java.security.MessageDigest;
 import java.util.*;
 import java.util.regex.*;
 import de.iritgo.simplelife.math.NumberTools;
-import de.iritgo.simplelife.tools.Option;
 
 
 /**
@@ -758,6 +757,20 @@ public final class StringTools
 	public static String concatWithDelimiter(Collection<?> values, String delim)
 	{
 		return concatWithDelimiter(values, delim, new SimpleStringConverter());
+	}
+
+	/**
+	 * Concatenate all elements in the given collection. Elements are separated
+	 * with the specified delimiter. Each element is converted to a string with
+	 * the toString() method.
+	 *
+	 * @param values The string array to convert to a string.
+	 * @param delim The delimiter.
+	 * @return The concatenated string.
+	 */
+	public static String concatWithDelimiter(Object[] values, String delim)
+	{
+		return concatWithDelimiter(Arrays.asList(values), delim, new SimpleStringConverter());
 	}
 
 	/**
